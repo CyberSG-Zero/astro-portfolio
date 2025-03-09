@@ -1,0 +1,1 @@
+const elementos=document.querySelectorAll(".section.full-width");elementos.forEach(e=>{let l=e.dataset.bg;e.style.backgroundImage=`url(${l})`});

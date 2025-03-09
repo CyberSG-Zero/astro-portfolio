@@ -1,0 +1,16 @@
+{
+  "name": "c-users-luiss-onedrive---universidad-peruana-de-ciencias-photoshop--vida-2025-proyecto-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/gabarito": "^5.2.5",
+    "@fontsource-variable/open-sans": "^5.2.5",
+    "astro": "^5.4.1"
+  }
+}
