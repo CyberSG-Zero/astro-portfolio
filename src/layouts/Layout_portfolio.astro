@@ -21,9 +21,9 @@ const { title, description } = Astro.props
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions />
 
-		<link rel="stylesheet" href="../src/assets/css/styles.css">
+		<link rel="stylesheet" href="../css/styles.css">
 
-		<link rel="stylesheet" href="../src/assets/css/infinite-slider.css">
+		<link rel="stylesheet" href="../css/infinite-slider.css">
 		<title>{title}</title>
 		<meta name="description" content={description} />
 	</head>
@@ -34,7 +34,7 @@ const { title, description } = Astro.props
 			<slot />
 		</main>
 		<Footer />
-		<script defer src="../src/assets/js/mouse.js" client:only="react"></script>
+		<script defer src="../js/mouse.js" client:only="react"></script>
 		
 	</body>
 </html>

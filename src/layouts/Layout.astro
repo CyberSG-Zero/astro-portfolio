@@ -16,9 +16,9 @@ const { title, description } = Astro.props
 		<link rel="icon" type="image/svg+xml" href="/myself.avif" />
 		<meta name="generator" content={Astro.generator} />
 
-		<link rel="stylesheet" href="../src/assets/css/styles.css">
+		<link rel="stylesheet" href="../css/styles.css">
 
-		<link rel="stylesheet" href="../src/assets/css/counter.css">
+		<link rel="stylesheet" href="../css/counter.css">
 		<title>{title}</title>
 
 		<ViewTransitions />
@@ -32,7 +32,7 @@ const { title, description } = Astro.props
 			<slot />
 		</main>
 		<Footer />
-		<script defer src="../src/assets/js/mouse.js" client:only="react"></script>
+		<script defer src="../js/mouse.js" client:only="react"></script>
 	</body>
 </html>
 
