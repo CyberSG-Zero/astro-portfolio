@@ -216,7 +216,6 @@ main {
     gap: 1.5rem;
     padding: 1rem 1rem;
     margin: auto;
-
 }
 
 .section.full-width {
@@ -288,7 +287,9 @@ main {
     }
 }
 
-
+.image-large {
+    border-radius: 8px;
+}
 
 .display_text {
     font-size: 3rem;
@@ -599,7 +600,7 @@ pixel-canvas {
     flex-direction: column;
     max-width: 1600px;
     width: 100%;
-    gap: 16px;
+    gap: 2.5rem;
 }
 
 
@@ -655,8 +656,9 @@ video {
     width: 100%;
     object-fit: cover;
     border-radius: 8px;
-    height: 30rem;
+    max-height: 30rem;
     max-height: none;
+    aspect-ratio: 1/1;
 }
 
 .vertical {
@@ -877,7 +879,6 @@ footer {
     .image-small-container {
         flex-direction: row;
     }
-    
     .experience-container.proyectos {
         flex-direction: row;
     }
