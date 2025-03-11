@@ -941,9 +941,7 @@ footer {
     .header-wrap {
         width: auto;
     }
-    /* .navbar {
-        width: auto;
-    } */
+
     .hamburger-icon {
         display: none;
     }
@@ -988,11 +986,10 @@ footer {
     .card-wrapper { /* Estilos para el contenedor de las cards si es necesario */
         flex-direction: row;
     }
-    /* .content-description{
-        font-size: clamp(1rem, 3vw, 1.5rem);
-        font-weight: 300;
-        line-height: 1.2em;
-    } */
+
+    .img_container{
+        max-width: none;
+    }
 
     .image-gallery {
         gap: 48px;
@@ -1002,9 +999,7 @@ footer {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    /* .vertical {
-        height: 30rem;
-    } */
+
 
     .footer {
         grid-template-columns: repeat(4, 1fr);
