@@ -107,7 +107,10 @@ import Layout from '../../layouts/Layout_portfolio.astro';
 	<section class="section proyectos">
 		<div class="image-gallery proyectos">
 			<a class="video-container vertical" href="./proyectos/e-Qapla">
-				<img loading="lazy" class="image-small proyectos" src="./images/Portada_e-qapla.png" alt="Imagen de la landingpage de e-qapla con 2 imágenes mostrando partes de la misma landing"></img>
+				<picture class="image-small proyectos">
+					<source media="(max-width:767px)"  srcset="./images/Portada_e-qapla.avif">
+					<img loading="lazy" src="./images/Portada_e-qapla_desktop.avif" alt="Imagen de la landingpage de e-qapla con 2 imágenes mostrando partes de la misma landing. Al darle click te redirige a la página del proyecto en cuestión.">
+				</picture>
 				<div class="image-info">
 					<h3>LandingPage - e-Qapla</h3>
 					<div>2025</div>
