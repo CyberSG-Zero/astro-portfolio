@@ -18,7 +18,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bg-color);
-    color: #fff;
+    color: var(--text-color);
     width: 100%;
     scroll-behavior: smooth;
     text-wrap: balance;
@@ -40,7 +40,7 @@ a.logo-text{
     display: flex;
     align-items: center;
     gap: 1rem;
-    color: white;
+    color: var(--text-color);
     font-size: 1.5rem;
     font-weight: 800;
     text-decoration: none;
@@ -425,7 +425,23 @@ main {
     transform: translateX(-100%);
 }
 }
-  
+
+
+.ani-icon{
+    color: #F63562;
+    animation: moveto 1s;
+}
+
+@keyframes moveto {
+    0% {
+        transform: translateX(-100%) rotate(-360deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) rotate(0);
+        opacity: 1;
+    } 
+}
 
 .content-subtitle {
     font-size: clamp(2rem, 3vw, 3rem);
@@ -805,6 +821,14 @@ video {
     max-width: 36rem;
 }
 
+.tools-wrapper{
+    padding: 0.5rem 0;
+    color: var(--accent-color);
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+}
 
 footer {
     display: flex;
