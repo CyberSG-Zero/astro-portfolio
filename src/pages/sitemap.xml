@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://cybersg.dev/</loc>
+  <lastmod>2025-03-19T15:31:09+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects</loc>
+  <lastmod>2025-03-19T15:31:09+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/ArquiTechPro</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/e-Qapla</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/Anilist</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/Intrepido_Cacao</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/Inmape</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/Dr-Caramelo</loc>
+  <lastmod>2025-03-19T15:31:10+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://cybersg.dev/projects/No-UserName</loc>
+  <lastmod>2025-03-19T15:31:11+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
