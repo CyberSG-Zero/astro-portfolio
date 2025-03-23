@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="CyberSG" description="CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems.">
+<Layout title="CyberSG" description="CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!">
 	<!-- Hero -->
 	<section class="section">
 		<div class="content-header">
@@ -20,8 +20,8 @@ import Layout from '../layouts/Layout.astro';
 			</div>
 			</div>
 			<div class="phrase-ctnr">
-				<div class="content-description home">“Always looking for the <span class="text-span">best solution</span> for my client.” </div>
-				<div class="content-description home">Mixing lots of technologies from code to design to bring <span class="text-span">clean, impact</span> and <span class="text-span">enjoyable</span> projects.</div>
+				<p class="content-description home">“Always looking for the <span class="text-span">best solution</span> for my client.” </p>
+				<blockquote class="content-description home">Mixing lots of technologies from code to design to bring <span class="text-span">clean, impact</span> and <span class="text-span">enjoyable</span> projects.</blockquote>
 			</div>
 			<a class="button outlink" href="/projects"> See my projects
 				<svg 
@@ -153,29 +153,37 @@ import Layout from '../layouts/Layout.astro';
 
 	<!-- Projects Section -->
 	<section class="section center">
-	<div class="image-gallery">
-		<div class="content-description">
-		Here is some of my achievements with my successful clients
-		</div>
-		<a class="video-container" href="./projects/ArquiTechPro">
-			<title>ArquiTechPro Video Presentation</title> 
-			<video loop autoplay muted class="image-large" src="./videos/arquitech.webm" aria-label="Video Promocional del proyecto ArquiTechPro que al clickearle te lleva a la pagina del proyecto"></video>
+		<div class="image-gallery">
+			<div class="content-description">
+			Here is some of my achievements with my successful clients
+			</div>
+			<a class="video-container" href="./projects/ArquiTechPro">
+				<article>
+					<title>ArquiTechPro Video Presentation</title> 
+					<video loop autoplay muted class="image-large" src="./videos/arquitech.webm" aria-label="Video Promocional del proyecto ArquiTechPro que al clickearle te lleva a la pagina del proyecto"></video>
+				</article>
 			</a>
-		<div class="image-small-container">
-			<a class="image-small" href="./projects/e-Qapla">
-				<img loading="lazy" class="image-small" src="./images/Portada_e-qapla_desktop.avif" alt="Imagen de la landing de e-qapla que si le das click te redirige a la página del proyecto." />
-			</a>  
-			<a class="video-container" href="./projects/Anilist">
-				<title>Anilist video</title> 
-				<video class="image-small" loop autoplay muted src="./videos/anilist.webm" aria-label="Video Promocional del proyecto Anilist que al clickearle te lleva a la página del proyecto"></video>
-			</a>
-			<a class="image-small" href="./projects/Intrepido_Cacao">
-				<img loading="lazy" class="image-small" src="./images/cacao.avif" alt="Imagen del Intrépido Cacao con su equipo. Si le das click te redirige a la página del proyecto" />
-			</a>
+			<div class="image-small-container">
+				<article class="image-small">
+					<a href="./projects/e-Qapla">
+						<img loading="lazy" class="image-small" src="./images/Portada_e-qapla_desktop.avif" alt="Imagen de la landing de e-qapla que si le das click te redirige a la página del proyecto." />
+					</a>  
+				</article>
 
+				<article class="video-container">
+					<a class="video-container" href="./projects/Anilist">
+						<title>Anilist video</title> 
+						<video class="image-small" loop autoplay muted src="./videos/anilist.webm" aria-label="Video Promocional del proyecto Anilist que al clickearle te lleva a la página del proyecto"></video>
+					</a>
+				</article>
+				<article>
+					<a class="image-small" href="./projects/Intrepido_Cacao">
+						<img loading="lazy" class="image-small" src="./images/cacao.avif" alt="Imagen del Intrépido Cacao con su equipo. Si le das click te redirige a la página del proyecto" />
+					</a>
+				</article>
+			</div>
+			<a class="button" href="/projects">See all projects</a>
 		</div>
-		<a class="button" href="/projects">See all projects</a>
-	</div>
 	</section>
 	<script type="module" defer src="./js/pixel-canvas.js" client:only="react"></script>
 	<script defer src="./js/number-counter.js" client:only="react"></script>
