@@ -27,6 +27,19 @@ const { title, description } = Astro.props
 		
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<script type="application/ld+json">
+			{
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"url": "https://www.cybersg.dev",
+			"sameAs": ["https://www.cybersg.dev/projects", "https://www.cybersg.dev/projects/Anilist"],
+			"name": "CyberSG",
+			"description": "CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!",
+			"email": "luissalas2706@gmail.com",
+			"telephone": "+51 992-444-846",
+			"iso6523Code": "0199:724500PMK2A2M1SQQ228"
+			}
+		</script>
 	</head>
 	<body>
 		<div class="cursor"></div>
