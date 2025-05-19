@@ -6,7 +6,7 @@ import Layout from '../layouts/Layout.astro';
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="CyberSG" description="CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!">
+<Layout title="Freelance Web Development Solutions" description="CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!">
 	<!-- Hero -->
 	<section class="section">
 		<div class="content-header">
@@ -112,7 +112,7 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 	<div class="card-wrapper">
 		<div class="card">
-		<pixel-canvas data-no-focus></pixel-canvas>
+		<pixel-canvas data-gap="10" data-no-focus></pixel-canvas>
 		<div class="card-content">
 			<div class="card_top">01</div>
 			<h2 class="card-title">Frontend Development</h2>
@@ -130,7 +130,7 @@ import Layout from '../layouts/Layout.astro';
 		</div>
 		
 		<div class="card" style="--active-color: #fef08a">
-		<pixel-canvas data-gap="3" data-speed="20" data-colors="#fef08a, #fde047, #eab308" data-no-focus></pixel-canvas>
+		<pixel-canvas data-gap="10" data-speed="25" data-colors="#fef08a, #fde047, #eab308" data-no-focus></pixel-canvas>
 		<div class="card-content">
 			<div class="card_top">03</div>
 			<h2 class="card-title">Interface Design</h2>
@@ -140,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
 	</div>
 	<div class="card-wrapper">
 		<div class="card" style="--active-color: #fecdd3">
-		<pixel-canvas data-gap="6" data-speed="80" data-colors="#fecdd3, #fda4af, #e11d48" data-no-focus></pixel-canvas>
+		<pixel-canvas data-gap="10" data-speed="25" data-colors="#fecdd3, #fda4af, #e11d48" data-no-focus></pixel-canvas>
 		<div class="card-content">
 			<div class="card_top">04</div>
 			<h2 class="card-title">Testing</h2>
@@ -185,6 +185,11 @@ import Layout from '../layouts/Layout.astro';
 			<a class="button" href="/projects">See all projects</a>
 		</div>
 	</section>
+
+	<div itemscope itemtype="https://schema.org/WebSite">
+		<meta itemprop="url" content="https://www.cybersg.dev/" />
+		<meta itemprop="name" content="CyberSG" />
+	</div>
 	<script type="module" defer src="./js/pixel-canvas.js" client:only="react"></script>
 	<script defer src="./js/number-counter.js" client:only="react"></script>
 </Layout>
