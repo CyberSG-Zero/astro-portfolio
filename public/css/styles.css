@@ -2,8 +2,10 @@
 
 :root {
     --bg-color: #0C0C0C;
-    --text-color: #fff;
-    --accent-color: #716b6c;
+    --text-color: #DCDCDC;
+    --accent-color: #F63562;
+    --low-color: #A1A1A1;
+    --bar-color: #716b6c;
 }
 
 
@@ -225,9 +227,9 @@ main {
 }
 .text-span {
     font-family: 'Open Sans Variable', system-ui;
-    font-weight: 300;
+    font-weight: 500;
     font-style: italic;
-    color: var(--text-color);
+    color: var(--accent-color);
 }
 .section {
     position: relative;
@@ -332,7 +334,7 @@ main {
     font-size: 3rem;
 }
 .achievement{
-    border: solid 1px var(--accent-color);
+    border: solid 1px var(--low-color);
     border-radius: 8px;
     padding: 1.5rem;
 
@@ -455,7 +457,7 @@ main {
     align-items: start;
     width: 100%;
     gap: 1.5rem;
-    color: var(--accent-color);
+    color: var(--text-color);
     font-size: clamp(1rem, 3vw, 1.5rem);
     line-height: 1.2em;
 }
@@ -581,7 +583,7 @@ opacity: 0.7;
 }
 .card_top {
     margin: 1rem 0;
-    color: var(--accent-color);
+    color: var(--low-color);
     font-weight: 800;
     font-size: 2.25rem;
 }
@@ -590,12 +592,12 @@ opacity: 0.7;
     font-family: 'Open Sans Variable', system-ui;
     font-weight: 300;
     font-style: italic; 
-    color: var(--accent-color);
+    color: var(--low-color);
     font-size: 1.5em;
     line-height: 0.9em;
 }
 .card-description {
-    color: var(--accent-color);
+    color: var(--low-color);
     font-size: 1rem;
 }
 
@@ -776,7 +778,7 @@ video {
 
     & p{
         font-weight: 300;
-        color: var(--accent-color);
+        color: var(--low-color);
     }
 }
 
@@ -794,7 +796,7 @@ video {
     gap: 1rem;
     align-items: center;
     flex-direction: row;
-    color: var(--accent-color);
+    color: var(--text-color);
     font-size: 2.5rem;
     font-weight: bold;
     text-decoration: none;
@@ -807,20 +809,27 @@ video {
 .content-header.proyectos {
     color: var(--text-color);
     text-decoration: none;
+    gap: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: initial;
     font-weight: 300;
+    
 }
+
+a.content-header.proyectos {
+    display: flex;
+    max-width: 100px;
+}
+
 .experience-container.proyectos {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: var(--accent-color);
+    color: var(--text-color);
     gap: 1.5rem;
-    border-bottom: solid 0.5px var(--accent-color);  
+    border-bottom: solid 0.5px var(--bar-color);  
 }
 .experience-container.proyectos :nth-child(2) {
     max-width: 36rem;
@@ -828,7 +837,7 @@ video {
 
 .tools-wrapper{
     padding: 0.5rem 0;
-    color: var(--accent-color);
+    color: var(--bar-color);
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -1188,7 +1197,7 @@ footer {
 }
 
 ::-webkit-scrollbar-track{
-    background: var(--accent-color);
+    background: var(--bar-color);
 }
 ::-webkit-scrollbar-thumb{
     background: var(--text-color);
