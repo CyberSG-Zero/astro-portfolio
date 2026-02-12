@@ -22,7 +22,7 @@ const { title, description } = Astro.props
 		<link rel="stylesheet" href="../css/styles.css">
 
 		<link rel="stylesheet" href="../css/counter.css">
-		
+		<script type="module" src="../js/mouse.js" client:only="react"></script>
 		<ViewTransitions />
 		
 		<title>{title}</title>
@@ -63,7 +63,6 @@ const { title, description } = Astro.props
 			<slot />
 		</main>
 		<Footer />
-		<script defer src="../js/mouse.js" client:only="react"></script>
 	</body>
 </html>
 
