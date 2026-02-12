@@ -3,9 +3,6 @@ import '@fontsource-variable/open-sans/wght-italic.css';
 
 import '@fontsource-variable/gabarito';
 
-import Header from '../components/header-project.astro';
-import Footer from '../components/footer.astro';
-
 import { ViewTransitions } from 'astro:transitions';
 const { title } = Astro.props
 
@@ -32,11 +29,9 @@ const { title } = Astro.props
 	</head>
 	<body>
 		<div class="cursor"></div>
-		<Header />
-		<main>
+		<main class="thanks">
 			<slot />
 		</main>
-		<!-- <Footer /> -->
 		<script defer src="../js/mouse.js" client:only="react"/>
 	</body>
 </html>
