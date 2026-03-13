@@ -237,6 +237,26 @@ main {
         height: 100dvh;
     }
 }
+
+.subtitle {
+    display: flex;
+    font-family: 'Gabarito Variable', system-ui;
+    color: var(--low-color);
+    font-size: clamp(2rem, 5vw, 4rem);
+    /* text-transform: uppercase; */
+    font-weight: bold;
+    text-decoration: none;
+    gap: 0.225rem;
+
+    &:hover svg{
+        transform: translateX(0.875rem);
+    }
+
+    & svg {
+        transition: all 150ms ease-in-out;
+        width: 1em;
+    }
+}
 .text {
     font-size: clamp(1rem, 3vw, 1.2rem);;
     margin-top: 0;
@@ -718,6 +738,18 @@ opacity: 0.7;
     justify-content: center;
     align-items: center;
     gap: 1rem;
+
+    &.fit{
+        width: fit-content;
+    }
+
+    &.small{
+        margin-top: 1rem;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        /* color: var(--bar-color); */
+        border: 1.5px solid var(--bar-color);
+    }
 
     &:hover {
         background-color: var(--low-color);
@@ -1292,6 +1324,12 @@ footer {
 
     main {
         padding: 2rem;
+    }
+
+    .subtitle {
+        display: flex;
+        font-family: 'Gabarito Variable', system-ui;
+        /* font-size: clamp(3rem, 3vw, 1rem); */
     }
 
     a.logo-text{
