@@ -2,12 +2,15 @@
 import '@fontsource-variable/open-sans/wght-italic.css';
 
 import '@fontsource-variable/gabarito';
+import '../styles/styles.css';
+import '../styles/infinite-slider.css';
 
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 
 import { ViewTransitions } from 'astro:transitions';
 const { title, description } = Astro.props
+const canonicalURL = Astro.url.href
 
 
 
@@ -17,13 +20,12 @@ const { title, description } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="canonical" href={canonicalURL} />
 		<link rel="icon" type="image/svg+xml" href="/myself.avif" />
 		<meta name="generator" content={Astro.generator} />
 		<ViewTransitions />
 
-		<link rel="stylesheet" href="../css/styles.css">
 
-		<link rel="stylesheet" href="../css/infinite-slider.css">
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<script type="text/javascript">

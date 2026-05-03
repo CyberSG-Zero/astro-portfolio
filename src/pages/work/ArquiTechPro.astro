@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout_project.astro';
 ---
 
-<Layout title="ArquiTechPro | CyberSG">
+<Layout title="ArquiTechPro | CyberSG" description="ArquiTechPro - Construction company website designed and developed by CyberSG. UX/UI design, web development, and brand identity.">
 
     <section class="section project">
         UX/UI •  Web Design • Identity
@@ -52,7 +52,7 @@ import Layout from '../../layouts/Layout_project.astro';
     </section>
 
     <section class="section">
-        <video loop autoplay muted class="image-large" src="../videos/arquitech.webm"></video>
+        <video loop preload="none" autoplay muted class="image-large" src="../videos/arquitech.webm"></video>
     </section>
 
     <section class="section">
@@ -66,7 +66,7 @@ import Layout from '../../layouts/Layout_project.astro';
             </div>
         </div>
     <!-- <section class="section">
-        <video loop autoplay muted class="image-large" src="../videos/arquitech.webm"></video>
+        <video loop preload="none" autoplay muted class="image-large" src="../videos/arquitech.webm"></video>
     </section> -->
 
     <section class="section full-width" style="background-image: url('../images/Collage_ArquiTechPro.avif');">
@@ -74,10 +74,50 @@ import Layout from '../../layouts/Layout_project.astro';
 
 
     <section class="section">
-        <video loop autoplay muted class="image-large" src="../videos/Arquitech_2.webm"></video>
+        <video loop preload="none" autoplay muted class="image-large" src="../videos/Arquitech_2.webm"></video>
     </section>
 
     <section class="section">
-        <video loop autoplay muted class="image-large" src="../videos/Arquitech_3.webm"></video>
+        <video loop preload="none" autoplay muted class="image-large" src="../videos/Arquitech_3.webm"></video>
     </section>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "CreativeWork",
+            "name": "ArquiTechPro",
+            "description": "Construction company website designed and developed by CyberSG. UX/UI design, web development, and brand identity for Softaki Software Solutions.",
+            "url": "https://cybersg.dev/work/ArquiTechPro",
+            "image": "https://cybersg.dev/images/Portada_arquitech.avif",
+            "author": {
+                "@type": "Person",
+                "name": "Luis Salas",
+                "url": "https://cybersg.dev"
+            },
+            "creator": {
+                "@type": "Person",
+                "name": "Luis Salas"
+            },
+            "datePublished": "2024",
+            "genre": "Web Design",
+            "about": [
+                {
+                    "@type": "Thing",
+                    "name": "UX/UI Design"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Web Development"
+                },
+                {
+                    "@type": "Thing",
+                    "name": "Brand Identity"
+                }
+            ],
+            "workExample": {
+                "@type": "WebPage",
+                "url": "https://www.eqapla.com/"
+            }
+        }
+    </script>
 </Layout>

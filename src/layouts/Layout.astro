@@ -1,11 +1,15 @@
 ---
 import '@fontsource-variable/gabarito';
 import '@fontsource-variable/open-sans/wght-italic.css';
+import '../styles/styles.css';
+import '../styles/infinite-slider.css';
+import '../styles/counter.css';
 
 import Header from '../components/header.astro';
 import Footer from '../components/footer.astro';
 import { ViewTransitions } from 'astro:transitions';
 const { title, description } = Astro.props
+const canonicalURL = Astro.url.href
 
 ---
 <!doctype html>
@@ -13,17 +17,14 @@ const { title, description } = Astro.props
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
+		<link rel="canonical" href={canonicalURL} />
 		<meta property="og:image" content="/myself.avif">
 		<link rel="icon" type="image/svg+xml" href="/myself.avif" />
 		<meta name="generator" content={Astro.generator} />
 
 		<link rel="sitemap" href="/sitemap-index.xml" />
 
-		<link rel="stylesheet" href="../css/styles.css">
-		<link rel="stylesheet" href="../css/infinite-slider.css">
-
-		<link rel="stylesheet" href="../css/counter.css">
-		<script type="module" src="../js/mouse.js" client:only="react"></script>
+		<script type="module" src="../js/mouse.js"></script>
 		<ViewTransitions />
 		
 		<title>{title}</title>
@@ -31,25 +32,64 @@ const { title, description } = Astro.props
 		<script type="application/ld+json">
 			{
 			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": "CyberSG",
-			"url": "https://cybersg.dev",
-			"logo": "https://cybersg.dev/images/myself.avif",
-			"description": "CyberSG is a Freelancer Web Developer with ilustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!",
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"contactType": "customer service",
-				"email": "luissalas2706@gmail.com"
-			},
-			"sameAs": [
-				"https://www.instagram.com/cybersg_zero/",
-				"https://www.linkedin.com/in/cybersg/",
-				 "https://github.com/CyberSG-Zero"
+			"@graph": [
+				{
+					"@type": "Person",
+					"name": "Luis Salas",
+					"alternateName": "CyberSG",
+					"url": "https://cybersg.dev",
+					"image": "https://cybersg.dev/myself.avif",
+					"jobTitle": "Freelance Web Developer",
+					"description": "Freelancer Web Developer with illustrations and graphic skills to solve digital problems. Specialized in UX/UI design, frontend development, and visual design.",
+					"knowsAbout": ["Web Development", "UX/UI Design", "Frontend Development", "Visual Design", "Graphic Design"],
+					"address": {
+						"@type": "PostalAddress",
+						"addressLocality": "Barcelona",
+						"addressCountry": "ES"
+					},
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"contactType": "customer service",
+						"email": "luissalas2706@gmail.com"
+					},
+					"sameAs": [
+						"https://www.instagram.com/cybersg_zero/",
+						"https://www.linkedin.com/in/cybersg/",
+						"https://github.com/CyberSG-Zero"
+					]
+				},
+				{
+					"@type": "Organization",
+					"name": "CyberSG",
+					"url": "https://cybersg.dev",
+					"logo": "https://cybersg.dev/myself.avif",
+					"description": "CyberSG is a Freelancer Web Developer with illustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!",
+					"contactPoint": {
+						"@type": "ContactPoint",
+						"contactType": "customer service",
+						"email": "luissalas2706@gmail.com"
+					},
+					"sameAs": [
+						"https://www.instagram.com/cybersg_zero/",
+						"https://www.linkedin.com/in/cybersg/",
+						"https://github.com/CyberSG-Zero"
+					]
+				},
+				{
+					"@type": "WebSite",
+					"url": "https://cybersg.dev",
+					"name": "CyberSG Portfolio",
+					"description": "Portfolio of CyberSG - Freelance Web Developer and UX/UI Designer",
+					"publisher": {
+						"@type": "Person",
+						"name": "Luis Salas"
+					}
+				}
 			]
 			}
 		</script>
 
-		<script type="text/javascript">
+		<script defer type="text/javascript">
 			(function(c,l,a,r,i,t,y){
 				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
 				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
@@ -58,9 +98,10 @@ const { title, description } = Astro.props
 		</script>
 	</head>
 	<body>
+		<a href="#main-content" class="skip-link">Skip to main content</a>
 		<div class="cursor"></div>
 		<Header />
-		<main>
+		<main id="main-content" role="main">
 			<slot />
 		</main>
 		<Footer />
