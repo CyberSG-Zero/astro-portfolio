@@ -1,48 +1,88 @@
-# Astro Starter Kit: Basics
+# 👋 Hi, I'm CyberSG
 
-```sh
-npm create astro@latest -- --template basics
+Freelance Web Developer & Visual Designer from Lima, Peru. Building digital experiences that blend code and design.
+
+![Astro](https://img.shields.io/badge/-Astro-%230C5F83?style=flat&logo=astro)
+![TypeScript](https://img.shields.io/badge/-TypeScript-%23007ACC?style=flat&logo=typescript)
+![CSS](https://img.shields.io/badge/-CSS-%233149AB?style=flat&logo=css3)
+
+---
+
+## 🧑‍💻 About Me
+
+I'm a passionate Visual Designer trained at **LABASAD Barcelona** and **Elisava Barcelona**, specializing in:
+
+- 🎨 **Web Development** – Clean, performant websites with Astro
+- 🎯 **UX/UI Design** – User-centered interfaces
+- 🖌️ **Visual Design** – Brand identity & aesthetic solutions
+
+My philosophy: *"Always looking for the best solution for my client."*
+
+---
+
+## 📊 Projects & Clients
+
+- **16+** Completed Projects
+- **12+** Clients Served
+
+---
+
+## 🛠️ Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Frontend | Astro, TypeScript |
+| Styling | CSS3,animations |
+| Tools | Figma, Photoshop, AI tools |
+
+---
+
+## 📫 Contact
+
+<div align="left">
+
+[![Instagram](https://img.shields.io/badge/-CyberSG-%23E4405F?style=flat&logo=instagram)](https://www.instagram.com/cybersg_zero/)
+[![LinkedIn](https://img.shields.io/badge/-CyberSG-%230A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/cybersg/)
+[![GitHub](https://img.shields.io/badge/-CyberSG-%23181717?style=flat&logo=github)](https://github.com/CyberSG-Zero)
+
+</div>
+
+**Website**: [cybersg.dev](https://www.cybersg.dev)
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/CyberSG-Zero/astro-portfolio.git
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Open [http://localhost:4321](http://localhost:4321) to view.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 📁 Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
+```
 /
 ├── public/
 │   └── favicon.svg
 ├── src/
+│   ├── components/
 │   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
 └── package.json
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+---
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+*Built with Astro + TypeScript*

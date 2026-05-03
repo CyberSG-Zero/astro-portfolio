@@ -1,5 +1,23 @@
 /* General styles */
 
+/* Skip Link for accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent-color);
+    color: var(--low-color);
+    padding: 0.5rem 1rem;
+    z-index: 1000;
+    text-decoration: none;
+    font-weight: 700;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
 :root {
     --bg-color: #0C0C0C;
     --text-color: #A1A1A1;

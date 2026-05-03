@@ -1,0 +1,7 @@
+{
+    "plugins": {
+        "@warp-dot-dev/opencode-warp": {
+            "enabled": true
+        }
+    }
+}
