@@ -1,6 +1,6 @@
 // Opción 2: Si usas Astro, envuélvelo en el script
 // document.addEventListener('DOMContentLoaded', () => {
-//     const projectName = document.querySelector(".display_text h1");
+//     const projectName = document.querySelector(".display-text h1");
 //     const namePlace = document.querySelector(".navbar.project span");
     
 //     if (projectName && namePlace) {
@@ -8,14 +8,14 @@
 //     }
 // });
 
-// let projectName = document.querySelector(".display_text")
+// let projectName = document.querySelector(".display-text")
 // const namePlace = document.querySelector(".navbar.project span")
 
 
 // namePlace.textContent = projectName.textContent;
 
 function updateProjectName() {
-    const projectName = document.querySelector(".display_text");
+    const projectName = document.querySelector(".display-text");
     const namePlace = document.querySelector(".navbar.project span");
     
     if (projectName && namePlace) {

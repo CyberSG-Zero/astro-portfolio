@@ -4,7 +4,7 @@ const emailInput = document.querySelector('input[name="email"]');
 const messageInput = document.querySelector('textarea[name="message"]');
 const consentCheckbox = document.querySelector('input[name="consent"]');
 
-const form = document.querySelector('.contact_form');
+const form = document.querySelector('.contact-form');
 
 
 form.addEventListener('input', () => {
