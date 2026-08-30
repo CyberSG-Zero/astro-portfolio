@@ -1,1 +1,0 @@
-document.addEventListener("astro:after-swap",()=>{let e=document.querySelectorAll(".section.full-width");e.forEach(e=>{let t=e.dataset.bg;e.style.backgroundImage=`url(${t})`})});

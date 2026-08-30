@@ -96,6 +96,15 @@ const canonicalURL = Astro.url.href
 				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 			})(window, document, "clarity", "script", "uj1cldalzc");
 		</script>
+
+		<script defer>
+			document.addEventListener('astro:page-load', () => {
+				document.querySelectorAll('video[autoplay]').forEach(v => {
+					v.load();
+					v.play().catch(() => {});
+				});
+			});
+		</script>
 	</head>
 	<body>
 		<a href="#main-content" class="skip-link">Skip to main content</a>
