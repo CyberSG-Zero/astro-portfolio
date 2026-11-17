@@ -1,9 +1,24 @@
+---
+import ArrowBack from '../icons/ArrowBack.astro';
+import LangSwitcher from './LangSwitcher.astro';
+import { localizePath, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+
 <header class="nav" role="banner">
-        <nav class="navbar project" aria-label="Main">
-            <a href="/work" class="content-header projects">
-            <svg width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m4 10l-.354.354L3.293 10l.353-.354zm16.5 8a.5.5 0 0 1-1 0zM8.646 15.354l-5-5l.708-.708l5 5zm-5-5.708l5-5l.708.708l-5 5zM4 9.5h10v1H4zM20.5 16v2h-1v-2zM14 9.5a6.5 6.5 0 0 1 6.5 6.5h-1a5.5 5.5 0 0 0-5.5-5.5z"/></svg>        
-            Back to Work
+        <nav class="navbar project" aria-label={t('nav.main')}>
+            <a href={localizePath(lang, '/work')} class="content-header projects">
+            <ArrowBack width="24" height="24" />
+            {t('nav.backToWork')}
             </a>
             <span></span>
+            <LangSwitcher lang={lang} />
         </nav>
 </header>

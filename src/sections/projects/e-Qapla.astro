@@ -1,0 +1,187 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'e-Qapla | CyberSG',
+    metaDesc:
+      'A marketing agency is often a fragmented and stressful process for businesses in Lima. e-Qapla identified that potential clients were losing valuable time toggling between multiple courier platforms, facing cluttered interfaces and a total lack of real-time visibility. The challenge was to create a seamless and engaging user experience for e-Qapla, highlighting the benefits of their shipping management platform.',
+    discipline: 'UX/UI • Web Design • Identity',
+    displayTitle: 'LandingPage - e-Qapla',
+    clients: [{ logoSrc: '/images/e-qapla_logo.avif', alt: 'e-Qapla logo', name: 'e-Qapla' }],
+    role: 'UX/UI Designer',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript, Make',
+    links: [{ label: 'PROTOTYPE [//] LINK', href: 'https://www.eqapla.com/', text: 'https://www.eqapla.com/' }],
+    next: { title: 'Inmape', href: '/work/Inmape' },
+    sections: [
+      {
+        kicker: '01 [//] The Problem',
+        heading: 'A beginning of a Journey',
+        body: `<p><strong><i>A marketing agency</i></strong> is often a fragmented and stressful process for businesses in Lima.<br><br><strong><i>e-Qapla</i></strong> identified that potential clients were losing valuable time toggling between multiple courier platforms, facing cluttered interfaces and a total lack of real-time visibility. The challenge was to create a seamless and engaging <strong><i>user experience for e-Qapla, highlighting the benefits of their shipping management platform.</i></strong> Explore a clean and modern design that guides users towards action.</p>`,
+      },
+      {
+        kicker: '02 [//] Goal',
+        heading: 'Centralize to Scale',
+        body: `<p>The primary objective was to bridge the gap between <strong><i>service information and user-centric design.</i></strong> We focused on three strategic pillars:<br><br><ul><li><strong>Simplification</strong>: Consolidating multiple courier services into a single, unified dashboard.</li><li><strong>Clarity</strong>: Prioritizing what you obtain and gain on this service.</li><li><strong>Conversion</strong>: Optimizing the user journey to turn initial interest into successful contact form submissions.</li></ul><br><br>Covering every step of the process: <strong><i>[userflow, prototyping, reviews, testing of form process]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'A Frictionless Welcome',
+        body: `<p>We implemented a progressive onboarding flow to prevent user burnout. Instead of overwhelming users with long forms, we focused strictly on essential data points to streamline the initial experience. Ensuring a perfect fit for any device.<br><br><ul><li><strong>Micro-interactions</strong>: Instant visual feedback to validate data entry and reduce errors.</li><li><strong>Validation & Automation</strong>: Leveraged <strong>Make</strong> and <strong>reCAPTCHA</strong> to prevent bot activity and automate form submissions, ensuring seamless communication with prospective clients.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: 'e-Qapla landing page with two images showing parts of the same landing',
+      process1: 'Web design process - 1',
+      process2: 'Web design process - 2',
+      implementation: 'Web design implementation on Webflow',
+    },
+  },
+  es: {
+    metaTitle: 'e-Qapla | CyberSG',
+    metaDesc:
+      'Una agencia de marketing suele ser un proceso fragmentado y estresante para las empresas de Lima. e-Qapla detectó que los potenciales clientes perdían un tiempo valioso saltando entre varias plataformas de mensajería, con interfaces saturadas y sin visibilidad en tiempo real. El reto era crear una experiencia de usuario ágil y atractiva para e-Qapla, destacando los beneficios de su plataforma de gestión de envíos.',
+    discipline: 'UX/UI • Diseño web • Identidad',
+    displayTitle: 'Landing page - e-Qapla',
+    clients: [{ logoSrc: '/images/e-qapla_logo.avif', alt: 'Logo de e-Qapla', name: 'e-Qapla' }],
+    role: 'Diseñador UX/UI',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript, Make',
+    links: [{ label: 'ENLACE [//] PROYECTO', href: 'https://www.eqapla.com/', text: 'https://www.eqapla.com/' }],
+    next: { title: 'Inmape', href: '/work/Inmape' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: 'El inicio de un camino',
+        body: `<p>Trabajar con <strong><i>una agencia de marketing</i></strong> suele ser un proceso fragmentado y estresante para las empresas de Lima.<br><br><strong><i>e-Qapla</i></strong> detectó que los potenciales clientes perdían un tiempo valioso saltando entre varias plataformas de mensajería, con interfaces saturadas y una falta total de visibilidad en tiempo real. El reto era crear una <strong><i>experiencia de usuario ágil y atractiva para e-Qapla, destacando los beneficios de su plataforma de gestión de envíos.</i></strong> Un diseño limpio y moderno que guía al usuario hacia la acción.</p>`,
+      },
+      {
+        kicker: '02 [//] Objetivo',
+        heading: 'Centralizar para escalar',
+        body: `<p>El objetivo principal era cerrar la brecha entre <strong><i>la información del servicio y el diseño centrado en el usuario.</i></strong> Nos centramos en tres pilares estratégicos:<br><br><ul><li><strong>Simplificación</strong>: consolidar varios servicios de mensajería en un único panel unificado.</li><li><strong>Claridad</strong>: priorizar qué obtienes y ganas con este servicio.</li><li><strong>Conversión</strong>: optimizar el recorrido del usuario para convertir el interés inicial en envíos exitosos del formulario de contacto.</li></ul><br><br>Cubriendo cada paso del proceso: <strong><i>[flujo de usuario, prototipado, revisiones, testing del formulario]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Una bienvenida sin fricción',
+        body: `<p>Implementamos un flujo de onboarding progresivo para evitar el agotamiento del usuario. En lugar de saturar con formularios largos, nos centramos estrictamente en los datos esenciales para agilizar la experiencia inicial, garantizando una adaptación perfecta a cualquier dispositivo.<br><br><ul><li><strong>Microinteracciones</strong>: feedback visual instantáneo para validar la introducción de datos y reducir errores.</li><li><strong>Validación y automatización</strong>: usamos <strong>Make</strong> y <strong>reCAPTCHA</strong> para evitar bots y automatizar los envíos del formulario, asegurando una comunicación fluida con los potenciales clientes.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: 'Landing de e-Qapla con dos imágenes que muestran partes de la misma landing',
+      process1: 'Proceso de diseño web - 1',
+      process2: 'Proceso de diseño web - 2',
+      implementation: 'Implementación del diseño web en Webflow',
+    },
+  },
+  ca: {
+    metaTitle: 'e-Qapla | CyberSG',
+    metaDesc:
+      "Una agència de màrqueting sol ser un procés fragmentat i estressant per a les empreses de Lima. e-Qapla va detectar que els potencials clients perdien un temps valuós saltant entre diverses plataformes de missatgeria, amb interfícies saturades i sense visibilitat en temps real. El repte era crear una experiència d'usuari àgil i atractiva per a e-Qapla, destacant els beneficis de la seva plataforma de gestió d'enviaments.",
+    discipline: 'UX/UI • Disseny web • Identitat',
+    displayTitle: 'Landing page - e-Qapla',
+    clients: [{ logoSrc: '/images/e-qapla_logo.avif', alt: 'Logotip d’e-Qapla', name: 'e-Qapla' }],
+    role: 'Dissenyador UX/UI',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript, Make',
+    links: [{ label: 'ENLLAÇ [//] PROJECTE', href: 'https://www.eqapla.com/', text: 'https://www.eqapla.com/' }],
+    next: { title: 'Inmape', href: '/work/Inmape' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: "L'inici d'un camí",
+        body: `<p>Treballar amb <strong><i>una agència de màrqueting</i></strong> sol ser un procés fragmentat i estressant per a les empreses de Lima.<br><br><strong><i>e-Qapla</i></strong> va detectar que els potencials clients perdien un temps valuós saltant entre diverses plataformes de missatgeria, amb interfícies saturades i una manca total de visibilitat en temps real. El repte era crear una <strong><i>experiència d'usuari àgil i atractiva per a e-Qapla, destacant els beneficis de la seva plataforma de gestió d'enviaments.</i></strong> Un disseny net i modern que guia l'usuari cap a l'acció.</p>`,
+      },
+      {
+        kicker: '02 [//] Objectiu',
+        heading: 'Centralitzar per escalar',
+        body: `<p>L'objectiu principal era tancar la bretxa entre <strong><i>la informació del servei i el disseny centrat en l'usuari.</i></strong> Ens vam centrar en tres pilars estratègics:<br><br><ul><li><strong>Simplificació</strong>: consolidar diversos serveis de missatgeria en un únic panell unificat.</li><li><strong>Claredat</strong>: prioritzar què obtens i guanyes amb aquest servei.</li><li><strong>Conversió</strong>: optimitzar el recorregut de l'usuari per convertir l'interès inicial en enviaments correctes del formulari de contacte.</li></ul><br><br>Cobrint cada pas del procés: <strong><i>[flux d'usuari, prototipatge, revisions, testing del formulari]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Una benvinguda sense fricció',
+        body: `<p>Vam implementar un flux d'onboarding progressiu per evitar l'esgotament de l'usuari. En lloc de saturar amb formularis llargs, ens vam centrar estrictament en les dades essencials per agilitzar l'experiència inicial, garantint una adaptació perfecta a qualsevol dispositiu.<br><br><ul><li><strong>Microinteraccions</strong>: feedback visual instantani per validar la introducció de dades i reduir errors.</li><li><strong>Validació i automatització</strong>: vam fer servir <strong>Make</strong> i <strong>reCAPTCHA</strong> per evitar bots i automatitzar els enviaments del formulari, assegurant una comunicació fluida amb els potencials clients.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: "Landing d'e-Qapla amb dues imatges que mostren parts de la mateixa landing",
+      process1: 'Procés de disseny web - 1',
+      process2: 'Procés de disseny web - 2',
+      implementation: 'Implementació del disseny web a Webflow',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+  links={[...c.links]}
+  next={c.next}
+>
+  <section class="section">
+    <img class="image-large" loading="lazy" src="/images/Portada_e-qapla.avif" alt={c.alt.hero} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.sections[0].kicker}</div>
+        <div class="copy">
+          <h2>{c.sections[0].heading}</h2>
+          <div set:html={c.sections[0].body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[1].kicker}</div>
+          <h2>{c.sections[1].heading}</h2>
+          <div set:html={c.sections[1].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/process-eqapla-2.avif" alt={c.alt.process1} />
+        <img class="image" src="/images/process-eqapla-1.avif" alt={c.alt.process2} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[2].kicker}</div>
+          <h2>{c.sections[2].heading}</h2>
+          <div set:html={c.sections[2].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/e-qapla-mockup.avif" alt={c.alt.implementation} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/Collage_eqapla.avif');">
+  </section>
+</ProjectShell>

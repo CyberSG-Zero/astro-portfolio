@@ -1,27 +1,40 @@
+---
+import LangSwitcher from './LangSwitcher.astro';
+import { localizePath, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
 
 <header class="nav" role="banner">
     <div class="header-wrap">
-        <nav class="navbar" aria-label="Main">
-            <a href="/" class="logo-text">
+        <nav class="navbar" aria-label={t('nav.main')}>
+            <a href={localizePath(lang, '/')} class="logo-text">
                 <div class="image-clip">
-                    <img loading="eager" class="image image--logo" src="../images/myself.avif" alt="CyberSG logo">
-                </div> 
+                    <img loading="eager" class="image image--logo" src="/images/myself.avif" alt="CyberSG logo">
+                </div>
                 CyberSG
             </a>
             <div class="hamburger-icon">
-                <label for="dropdown" aria-label="Toggle navigation menu">
+                <label for="dropdown" aria-label={t('nav.main')}>
                     <div class="bar bar1"></div>
                     <div class="bar bar2"></div>
-                    <div class="bar bar3"></div>  
+                    <div class="bar bar3"></div>
                 </label>
                 <input type="checkbox" id="dropdown" name="dropdown">
             </div>
         </nav>
     </div>
 
-    <ul class="pages">                       
-        <li><a href="/" title="Home">Home</a></li>
-        <li><a href="/work" title="Work">Work</a></li>
-        <li><a href="../../contact" title="Contact">[ Let's Connect ]</a></li>
-    </ul> 
+    <ul class="pages">
+        <li><a href={localizePath(lang, '/')} title={t('nav.home')}>{t('nav.home')}</a></li>
+        <li><a href={localizePath(lang, '/work')} title={t('nav.work')}>{t('nav.work')}</a></li>
+        <li><a href={localizePath(lang, '/contact')} title={t('nav.contact')}>{t('nav.contact')}</a></li>
+        <li class="lang-switch-item"><LangSwitcher lang={lang} /></li>
+    </ul>
 </header>

@@ -1,0 +1,128 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArrowBack from '../../icons/ArrowBack.astro';
+import ArrowRight from '../../icons/ArrowRight.astro';
+import BrandMark from '../../icons/BrandMark.astro';
+import { localizePath } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
+
+interface Client {
+  logoSrc: string;
+  alt: string;
+  name: string;
+}
+
+interface LinkItem {
+  label: string;
+  href: string;
+  text: string;
+}
+
+interface Props {
+  lang: Lang;
+  metaTitle: string;
+  metaDesc: string;
+  discipline: string;
+  displayTitle: string;
+  clients?: Client[];
+  role?: string;
+  timeline?: string;
+  stack?: string;
+  links?: LinkItem[];
+  next?: { title: string; href: string };
+  jsonLd?: Record<string, unknown>;
+}
+
+const {
+  lang,
+  metaTitle,
+  metaDesc,
+  discipline,
+  displayTitle,
+  clients = [],
+  role,
+  timeline,
+  stack,
+  links = [],
+  next,
+  jsonLd,
+} = Astro.props;
+
+const labels = {
+  en: { role: 'Role', timeline: 'Timeline', stack: 'Stack', next: '[//] Next Project [//]', back: 'Back to All Work' },
+  es: { role: 'Rol', timeline: 'Cronología', stack: 'Stack', next: '[//] Siguiente proyecto [//]', back: 'Volver a todos los proyectos' },
+  ca: { role: 'Rol', timeline: 'Cronologia', stack: 'Stack', next: '[//] Següent projecte [//]', back: 'Torna a tots els projectes' },
+} as const;
+
+const l = labels[lang];
+---
+
+<BaseLayout lang={lang} title={metaTitle} description={metaDesc} projectHeader jsonLd={jsonLd}>
+  <section class="section section--hero">
+    {discipline}
+    <div class="projects">
+      <h1 class="display-text">{displayTitle}</h1>
+      <BrandMark class="ani-icon" width="280" height="300" />
+    </div>
+    <div class="content-description">
+      <div class="clients-wrapper">
+        {clients.map((client) => (
+          <div class="clients">
+            <img src={client.logoSrc} alt={client.alt} />
+            {client.name}
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="meta-row">
+      {role && (
+        <div class="meta-item">
+          <div class="content-subtitle"><span>{l.role}</span></div>
+          <div>{role}</div>
+        </div>
+      )}
+
+      {timeline && (
+        <div class="meta-item">
+          <div class="content-subtitle"><span>{l.timeline}</span></div>
+          <div>{timeline}</div>
+        </div>
+      )}
+
+      {stack && (
+        <div class="meta-item">
+          <div class="content-subtitle"><span>{l.stack}</span></div>
+          <div>{stack}</div>
+        </div>
+      )}
+
+      {links.map((link) => (
+        <div class="meta-item">
+          <div class="content-subtitle"><span>{link.label}</span></div>
+          <a href={link.href} target="_blank" rel="noopener noreferrer">{link.text}</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <slot />
+
+  {next && (
+    <section class="section">
+      <div class="container center">
+        <div class="block center">
+          <span class="content-subtitle accent center">{l.next}</span>
+          <a class="next-project" href={localizePath(lang, next.href)}>
+            {next.title}
+            <ArrowRight />
+          </a>
+        </div>
+        <a class="button small fit" href={localizePath(lang, '/work')}>
+          <ArrowBack width="24" height="24" />
+          {l.back}
+        </a>
+      </div>
+    </section>
+  )}
+</BaseLayout>

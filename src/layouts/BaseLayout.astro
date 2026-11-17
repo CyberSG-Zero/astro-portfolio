@@ -1,0 +1,266 @@
+---
+import '@fontsource-variable/gabarito';
+import '@fontsource-variable/open-sans/wght-italic.css';
+import '../styles/styles.css';
+import '../styles/infinite-slider.css';
+import '../styles/counter.css';
+
+import { ClientRouter } from 'astro:transitions';
+
+import Header from '../components/header.astro';
+import HeaderProject from '../components/header-project.astro';
+import Footer from '../components/footer.astro';
+import { defaultLang, type Lang } from '../i18n/ui';
+import {
+  getLangFromUrl,
+  localizePath,
+  stripLocale,
+  useTranslations,
+} from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+  noindex?: boolean;
+  projectHeader?: boolean;
+  showHeader?: boolean;
+  showFooter?: boolean;
+  autoDetectLang?: boolean;
+  mainClass?: string;
+  /** Datos estructurados extra específicos de la página. */
+  jsonLd?: Record<string, unknown>;
+  /** Rutas sin prefijo de idioma cuando no comparten slug (p. ej. gracias/gracies). */
+  alternatePaths?: Partial<Record<Lang, string>>;
+}
+
+const {
+  title,
+  description = '',
+  lang = getLangFromUrl(Astro.url),
+  noindex = false,
+  projectHeader = false,
+  showHeader = true,
+  showFooter = true,
+  autoDetectLang = false,
+  mainClass = '',
+  jsonLd,
+  alternatePaths,
+} = Astro.props;
+
+const t = useTranslations(lang);
+const site = Astro.site ?? new URL('https://cybersg.dev');
+// Normalizamos sin barra final (salvo la raíz) para que canonical, hreflang,
+// enlaces internos y sitemap apunten siempre a la misma URL.
+const rawPath = stripLocale(Astro.url.pathname);
+const path = rawPath === '/' ? '/' : rawPath.replace(/\/+$/, '');
+const canonical = new URL(localizePath(lang, path), site).href;
+
+const localeMeta = {
+  en: { hreflang: 'en', ogLocale: 'en_US' },
+  es: { hreflang: 'es-ES', ogLocale: 'es_ES' },
+  ca: { hreflang: 'ca-ES', ogLocale: 'ca_ES' },
+} as const;
+
+const locales = Object.keys(localeMeta) as Lang[];
+const alternates = locales.map((code) => ({
+  code,
+  hreflang: localeMeta[code].hreflang,
+  href: new URL(localizePath(code, alternatePaths?.[code] ?? path), site).href,
+}));
+const xDefault = new URL(
+  localizePath(defaultLang, alternatePaths?.[defaultLang] ?? path),
+  site
+).href;
+
+const siteCopy = {
+  en: {
+    person:
+      'Freelance Web Developer with illustration and graphic skills to solve digital problems. Specialized in UX/UI design, frontend development, and visual design.',
+    org: 'CyberSG is a Freelance Web Developer with illustration and graphic skills to solve your digital problems. Contact me today to discuss your project!',
+    website: 'Portfolio of CyberSG - Freelance Web Developer and UX/UI Designer',
+    languages: ['English', 'Spanish', 'Catalan'],
+  },
+  es: {
+    person:
+      'Desarrollador web freelance con habilidades de ilustración y diseño gráfico para resolver problemas digitales. Especializado en diseño UX/UI, desarrollo frontend y diseño visual.',
+    org: 'CyberSG es un desarrollador web freelance con habilidades de ilustración y diseño gráfico para resolver tus problemas digitales. ¡Hablemos de tu proyecto!',
+    website: 'Portafolio de CyberSG - Desarrollador web freelance y diseñador UX/UI',
+    languages: ['Español', 'Catalán', 'Inglés'],
+  },
+  ca: {
+    person:
+      "Desenvolupador web freelance amb habilitats d'il·lustració i disseny gràfic per resoldre problemes digitals. Especialitzat en disseny UX/UI, desenvolupament frontend i disseny visual.",
+    org: "CyberSG és un desenvolupador web freelance amb habilitats d'il·lustració i disseny gràfic per resoldre els teus problemes digitals. Parlem del teu projecte!",
+    website: 'Portafoli de CyberSG - Desenvolupador web freelance i dissenyador UX/UI',
+    languages: ['Català', 'Espanyol', 'Anglès'],
+  },
+} as const;
+
+const c = siteCopy[lang];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      name: 'Luis Salas',
+      alternateName: 'CyberSG',
+      url: 'https://cybersg.dev',
+      image: 'https://cybersg.dev/myself.avif',
+      jobTitle: lang === 'en' ? 'Freelance Web Developer' : lang === 'es' ? 'Desarrollador web freelance' : 'Desenvolupador web freelance',
+      description: c.person,
+      knowsAbout: [
+        'Web Development',
+        'UX/UI Design',
+        'Frontend Development',
+        'Visual Design',
+        'Graphic Design',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Barcelona',
+        addressCountry: 'ES',
+      },
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: 'luissalas2706@gmail.com',
+        availableLanguage: c.languages,
+      },
+      sameAs: [
+        'https://www.instagram.com/cybersg_zero/',
+        'https://www.linkedin.com/in/cybersg/',
+        'https://github.com/CyberSG-Zero',
+      ],
+    },
+    {
+      '@type': 'Organization',
+      name: 'CyberSG',
+      url: 'https://cybersg.dev',
+      logo: 'https://cybersg.dev/myself.avif',
+      description: c.org,
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'customer service',
+        email: 'luissalas2706@gmail.com',
+      },
+      sameAs: [
+        'https://www.instagram.com/cybersg_zero/',
+        'https://www.linkedin.com/in/cybersg/',
+        'https://github.com/CyberSG-Zero',
+      ],
+    },
+    {
+      '@type': 'WebSite',
+      url: canonical,
+      name: 'CyberSG Portfolio',
+      description: c.website,
+      inLanguage: lang,
+      publisher: {
+        '@type': 'Person',
+        name: 'Luis Salas',
+      },
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/myself.avif" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="canonical" href={canonical} />
+    {
+      alternates.map((alternate) => (
+        <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />
+      ))
+    }
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex,follow" />}
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CyberSG" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/myself.avif', site).href} />
+    <meta property="og:locale" content={localeMeta[lang].ogLocale} />
+    {
+      alternates
+        .filter((alternate) => alternate.code !== lang)
+        .map((alternate) => (
+          <meta property="og:locale:alternate" content={localeMeta[alternate.code].ogLocale} />
+        ))
+    }
+
+    <ClientRouter />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(structuredData)}></script>
+    {jsonLd && <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)}></script>}
+
+    <script is:inline>
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'uj1cldalzc');
+    </script>
+
+    <script is:inline src="/js/mouse.js" defer></script>
+    {projectHeader && <script is:inline src="/js/dynamic-name.js" defer></script>}
+
+    {
+      autoDetectLang && (
+        <script is:inline>
+          (function () {
+            try {
+              if (localStorage.getItem('lang-pref')) return;
+              var langs = (navigator.languages || [navigator.language || 'en']).map(function (l) {
+                return l.split('-')[0].toLowerCase();
+              });
+              var match = langs.find(function (l) { return l === 'es' || l === 'ca'; });
+              if (!match) return;
+              localStorage.setItem('lang-pref', match);
+              location.replace('/' + match + location.search + location.hash);
+            } catch (e) {}
+          })();
+        </script>
+      )
+    }
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">{t('a11y.skip')}</a>
+    <div class="cursor"></div>
+    {showHeader && (projectHeader ? <HeaderProject lang={lang} /> : <Header lang={lang} />)}
+    <main id="main-content" role="main" class={mainClass || undefined}>
+      <slot />
+    </main>
+    {showFooter && <Footer lang={lang} />}
+
+    <script is:inline>
+      document.addEventListener('astro:page-load', function () {
+        document.querySelectorAll('video[autoplay]').forEach(function (v) {
+          v.load();
+          v.play().catch(function () {});
+        });
+      });
+      document.addEventListener('click', function (event) {
+        var link = event.target.closest && event.target.closest('.lang-switch a');
+        if (!link) return;
+        try {
+          localStorage.setItem('lang-pref', link.getAttribute('data-lang'));
+        } catch (e) {}
+      });
+    </script>
+  </body>
+</html>

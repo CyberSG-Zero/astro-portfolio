@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowBack from '../icons/ArrowBack.astro';
+import ArrowRight from '../icons/ArrowRight.astro';
+import { localizePath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Page not found | CyberSG',
+    metaDesc:
+      'The page you are looking for does not exist. Return to the CyberSG home page.',
+    subtitle: 'Error 404',
+    heading: 'This page went off the grid',
+    body:
+      'The link may be broken, or the page may have moved. Taking you back home in a few seconds — or use the button below.',
+    backHome: 'Back to Home',
+    seeWork: 'See my work',
+    redirectPrefix: 'Redirecting home in',
+    redirectA11y:
+      'Redirecting to the home page in 8 seconds. Press “Stay here” to cancel.',
+    cancel: 'Stay here',
+  },
+  es: {
+    metaTitle: 'Página no encontrada | CyberSG',
+    metaDesc:
+      'La página que buscas no existe. Vuelve al inicio del portafolio de CyberSG.',
+    subtitle: 'Error 404',
+    heading: 'Esta página se fue del mapa',
+    body:
+      'Puede que el enlace esté roto o que la página se haya movido. Te llevamos al inicio en unos segundos o puedes usar el botón.',
+    backHome: 'Volver al inicio',
+    seeWork: 'Ver proyectos',
+    redirectPrefix: 'Volviendo al inicio en',
+    redirectA11y:
+      'Volviendo a la página de inicio en 8 segundos. Pulsa «Quedarme aquí» para cancelar.',
+    cancel: 'Quedarme aquí',
+  },
+  ca: {
+    metaTitle: 'Pàgina no trobada | CyberSG',
+    metaDesc:
+      "La pàgina que busques no existeix. Torna a l'inici del portafoli de CyberSG.",
+    subtitle: 'Error 404',
+    heading: "Aquesta pàgina s'ha anat del mapa",
+    body:
+      "Pot ser que l'enllaç estigui trencat o que la pàgina s'hagi mogut. Et portem a l'inici en uns segons o pots fer servir el botó.",
+    backHome: "Torna a l'inici",
+    seeWork: 'Veure projectes',
+    redirectPrefix: "Tornant a l'inici en",
+    redirectA11y:
+      "Tornant a la pàgina d'inici en 8 segons. Prem «Quedar-me aquí» per cancel·lar.",
+    cancel: 'Quedar-me aquí',
+  },
+} as const;
+
+const c = copy[lang];
+const redirectSeconds = 8;
+const home = localizePath(lang, '/');
+const work = localizePath(lang, '/work');
+---
+
+<BaseLayout
+  lang={lang}
+  title={c.metaTitle}
+  description={c.metaDesc}
+  noindex
+  showHeader={false}
+  showFooter={false}
+  mainClass="not-found"
+>
+  <section class="section layout-split nf-section">
+    <div class="container center">
+      <div class="block center nf-block">
+        <div class="content-subtitle">{c.subtitle}</div>
+
+        <div class="nf-code" aria-hidden="true">
+          4<span class="nf-zero">0</span>4
+        </div>
+
+        <div class="heading-row thank">
+          <h1 class="section-title nf-title" data-i18n="heading">{c.heading}</h1>
+        </div>
+
+        <div class="content-description thank">
+          <p data-i18n="body">{c.body}</p>
+        </div>
+
+        <div class="button-row nf-actions">
+          <a class="button" href={home} data-home-link>
+            <ArrowBack width="24" height="24" aria-hidden="true" />
+            <span data-i18n="backHome">{c.backHome}</span>
+          </a>
+          <!-- <a class="nf-link" href={work} data-work-link>
+            <span data-i18n="seeWork">{c.seeWork}</span>
+            <ArrowRight width="18" height="18" aria-hidden="true" />
+          </a> -->
+        </div>
+
+        <div class="nf-countdown" data-countdown-wrapper hidden>
+          <p class="nf-countdown-text" aria-hidden="true">
+            <span data-i18n="redirectPrefix">{c.redirectPrefix}</span>
+            <strong data-countdown-value>{redirectSeconds}</strong>s
+          </p>
+          <span class="nf-sr-only" data-i18n="redirectA11y">{c.redirectA11y}</span>
+          <button type="button" class="nf-cancel" data-countdown-cancel>
+            <span data-i18n="cancel">{c.cancel}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline define:vars={{ copy, redirectSeconds }}>
+    (function () {
+      var supported = ['en', 'es', 'ca'];
+
+      function detectLang() {
+        var match = location.pathname.match(/^\/(es|ca)(?=\/|$)/);
+        if (match) return match[1];
+
+        try {
+          var pref = localStorage.getItem('lang-pref');
+          if (pref === 'es' || pref === 'ca' || pref === 'en') return pref;
+        } catch (e) {}
+
+        var langs = navigator.languages || [navigator.language || 'en'];
+        for (var i = 0; i < langs.length; i++) {
+          var code = String(langs[i]).split('-')[0].toLowerCase();
+          if (code === 'es' || code === 'ca') return code;
+        }
+
+        return 'en';
+      }
+
+      function init() {
+        var lang = detectLang();
+        if (supported.indexOf(lang) === -1) lang = 'en';
+        var c = copy[lang] || copy.en;
+
+        document.documentElement.lang = lang;
+        document.title = c.metaTitle;
+
+        var meta = document.querySelector('meta[name="description"]');
+        if (meta) meta.setAttribute('content', c.metaDesc);
+
+        var home = lang === 'en' ? '/' : '/' + lang;
+
+        var nodes = document.querySelectorAll('[data-i18n]');
+        for (var i = 0; i < nodes.length; i++) {
+          var key = nodes[i].getAttribute('data-i18n');
+          if (c[key]) nodes[i].textContent = c[key];
+        }
+
+        var homeLink = document.querySelector('[data-home-link]');
+        if (homeLink) homeLink.setAttribute('href', home);
+
+        var workLink = document.querySelector('[data-work-link]');
+        if (workLink) workLink.setAttribute('href', home === '/' ? '/work' : home + '/work');
+
+        var wrapper = document.querySelector('[data-countdown-wrapper]');
+        var value = document.querySelector('[data-countdown-value]');
+        var cancel = document.querySelector('[data-countdown-cancel]');
+        if (!wrapper || !value || !cancel) return;
+
+        var remaining = redirectSeconds;
+        var timer = null;
+        var cancelled = false;
+
+        function stop() {
+          cancelled = true;
+          if (timer) clearInterval(timer);
+          wrapper.hidden = true;
+          if (homeLink && typeof homeLink.focus === 'function') homeLink.focus();
+        }
+
+        wrapper.hidden = false;
+
+        timer = setInterval(function () {
+          remaining -= 1;
+          if (remaining <= 0) {
+            clearInterval(timer);
+            if (!cancelled) location.replace(home);
+            return;
+          }
+          value.textContent = String(remaining);
+        }, 1000);
+
+        cancel.addEventListener('click', stop);
+        document.addEventListener('keydown', function (event) {
+          if (event.key === 'Escape' && !cancelled) stop();
+        });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+      } else {
+        init();
+      }
+    })();
+  </script>
+</BaseLayout>
+
+<style>
+  :global(main.not-found) {
+    height: 100dvh;
+    justify-content: center;
+  }
+
+  .nf-section {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nf-block {
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .nf-code {
+    font-family: 'Gabarito Variable', system-ui;
+    font-size: clamp(6rem, 24vw, 15rem);
+    font-weight: 900;
+    line-height: 0.8;
+    letter-spacing: -0.04em;
+    color: var(--low-color);
+  }
+
+  .nf-zero {
+    color: var(--accent-color);
+  }
+
+  .nf-title {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--low-color);
+  }
+
+  .nf-actions {
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.5rem;
+  }
+
+  .nf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'Gabarito Variable', system-ui;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 150ms ease-in-out;
+  }
+
+  .nf-link:hover {
+    color: var(--low-color);
+  }
+
+  .nf-link svg {
+    transition: transform 150ms ease-in-out;
+  }
+
+  .nf-link:hover svg {
+    transform: translateX(0.25rem);
+  }
+
+  .nf-countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-color);
+  }
+
+  .nf-countdown[hidden] {
+    display: none;
+  }
+
+  .nf-countdown-text strong {
+    color: var(--low-color);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .nf-cancel {
+    padding: 0;
+    border: none;
+    background: none;
+    font: inherit;
+    color: var(--low-color);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    cursor: pointer;
+  }
+
+  .nf-cancel:hover {
+    color: var(--accent-color);
+  }
+
+  .nf-cancel:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+  }
+
+  .nf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (width > 767px) {
+    .nf-actions {
+      margin-top: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,274 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandMark from '../icons/BrandMark.astro';
+import GitHub from '../icons/GitHub.astro';
+import Instagram from '../icons/Instagram.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import { localizePath, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const copy = {
+  en: {
+    metaTitle: "Let's talk together | CyberSG",
+    metaDesc:
+      'CyberSG is a Freelancer Web Developer with illustration and graphic skills to solve your digital problems. Contact me today to discuss your project!',
+    subtitle: 'Contact',
+    heading: "Let's talk together",
+    intro:
+      "I'm right now in <strong><i>Barcelona, Spain</i></strong>, but I am available for remote work worldwide. <br><br> Whether you're looking to build a new website from scratch or revamp an existing one, I'm here to bring your vision to life. Let's work together to create a website that not only looks great but also drives results for your business.",
+    inquiry: 'Inquiry',
+    copied: 'Copied to clipboard!',
+    location: 'Barcelona, Spain // Remote',
+    name: 'Name',
+    namePlaceholder: 'Write your full name',
+    company: 'Company Name',
+    companyPlaceholder: 'Write your company name',
+    email: 'Email',
+    emailPlaceholder: 'Write your email',
+    message: 'Message',
+    messagePlaceholder: 'Your message',
+    legend: 'Select expectation:',
+    motiveWork: 'To work together | ˆᴗˆ |',
+    motiveTalk: 'To talk together | >ᴗ< |',
+    consent:
+      'I consent to having this website store my submitted information so they can respond to my inquiry.',
+    send: 'Send Message',
+    sending: 'Sending...',
+    error: 'Something went wrong. Please try again.',
+    thanksPath: '/thank-you-page',
+    contactLd: 'Get in touch with CyberSG - Freelance Web Developer. Available for web development, UX/UI design, and visual design projects.',
+  },
+  es: {
+    metaTitle: 'Hablemos | CyberSG',
+    metaDesc:
+      'CyberSG es un desarrollador web freelance con habilidades de ilustración y diseño gráfico para resolver tus problemas digitales. ¡Hablemos de tu proyecto!',
+    subtitle: 'Contacto',
+    heading: 'Hablemos juntos',
+    intro:
+      'Ahora mismo estoy en <strong><i>Barcelona, España</i></strong>, pero estoy disponible para trabajar en remoto en todo el mundo. <br><br> Tanto si quieres crear una web desde cero como renovar una existente, estoy aquí para dar vida a tu visión. Trabajemos juntos para crear una web que no solo se vea bien, sino que también genere resultados para tu negocio.',
+    inquiry: 'Consultas',
+    copied: '¡Copiado al portapapeles!',
+    location: 'Barcelona, España // Remoto',
+    name: 'Nombre',
+    namePlaceholder: 'Escribe tu nombre completo',
+    company: 'Nombre de la empresa',
+    companyPlaceholder: 'Escribe el nombre de tu empresa',
+    email: 'Correo electrónico',
+    emailPlaceholder: 'Escribe tu correo electrónico',
+    message: 'Mensaje',
+    messagePlaceholder: 'Tu mensaje',
+    legend: 'Selecciona una opción:',
+    motiveWork: 'Para trabajar juntos | ˆᴗˆ |',
+    motiveTalk: 'Para conversar | >ᴗ< |',
+    consent:
+      'Acepto que este sitio web almacene la información enviada para poder responder a mi consulta.',
+    send: 'Enviar mensaje',
+    sending: 'Enviando...',
+    error: 'Algo salió mal. Inténtalo de nuevo.',
+    thanksPath: '/gracias',
+    contactLd:
+      'Ponte en contacto con CyberSG - Desarrollador web freelance. Disponible para proyectos de desarrollo web, diseño UX/UI y diseño visual.',
+  },
+  ca: {
+    metaTitle: 'Parlem | CyberSG',
+    metaDesc:
+      "CyberSG és un desenvolupador web freelance amb habilitats d'il·lustració i disseny gràfic per resoldre els teus problemes digitals. Parlem del teu projecte!",
+    subtitle: 'Contacte',
+    heading: 'Parlem junts',
+    intro:
+      'Ara mateix sóc a <strong><i>Barcelona, Espanya</i></strong>, però estic disponible per treballar en remot a tot el món. <br><br> Tant si vols crear un web des de zero com renovar-ne un d’existent, sóc aquí per donar vida a la teva visió. Treballem junts per crear un web que no només es vegi bé, sinó que també generi resultats per al teu negoci.',
+    inquiry: 'Consultes',
+    copied: 'Copiat al porta-retalls!',
+    location: 'Barcelona, Espanya // Remot',
+    name: 'Nom',
+    namePlaceholder: 'Escriu el teu nom complet',
+    company: "Nom de l'empresa",
+    companyPlaceholder: "Escriu el nom de la teva empresa",
+    email: 'Correu electrònic',
+    emailPlaceholder: 'Escriu el teu correu electrònic',
+    message: 'Missatge',
+    messagePlaceholder: 'El teu missatge',
+    legend: 'Selecciona una opció:',
+    motiveWork: 'Per treballar junts | ˆᴗˆ |',
+    motiveTalk: 'Per xerrar una estona | >ᴗ< |',
+    consent:
+      'Accepto que aquest lloc web emmagatzemi la informació enviada per poder respondre a la meva consulta.',
+    send: 'Envia el missatge',
+    sending: 'Enviant...',
+    error: 'Alguna cosa ha anat malament. Torna-ho a provar.',
+    thanksPath: '/gracies',
+    contactLd:
+      "Posa't en contacte amb CyberSG - Desenvolupador web freelance. Disponible per a projectes de desenvolupament web, disseny UX/UI i disseny visual.",
+  },
+} as const;
+
+const c = copy[lang];
+const thanksUrl = localizePath(lang, c.thanksPath);
+
+const contactLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  name: c.metaTitle,
+  description: c.contactLd,
+  url: new URL(localizePath(lang, '/contact'), Astro.site ?? new URL('https://cybersg.dev')).href,
+  inLanguage: lang,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    contactType: 'customer service',
+    email: 'luissalas2706@gmail.com',
+    availableLanguage: ['English', 'Spanish', 'Catalan'],
+  },
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Barcelona',
+    addressCountry: 'ES',
+    addressRegion: 'Catalonia',
+  },
+};
+---
+
+<BaseLayout lang={lang} title={c.metaTitle} description={c.metaDesc} jsonLd={contactLd}>
+  <!-- contact -->
+  <section class="section layout-split">
+    <div class="contact-col">
+      <div class="block">
+        <div class="content-subtitle">{c.subtitle}</div>
+        <div class="heading-row">
+          <h1 class="section-title">{c.heading}</h1>
+          <BrandMark class="ani-icon" width="30" height="30" />
+        </div>
+      </div>
+      <div class="content-description prose">
+        <p set:html={c.intro}></p>
+      </div>
+      <div class="social-icons">
+        <a class="social-icon" href="https://www.instagram.com/cybersg_zero/" target="_blank" aria-label={t('a11y.instagram')}>
+          <Instagram aria-hidden="true" width="24" height="24" />
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/in/cybersg/" target="_blank" aria-label={t('a11y.linkedin')}>
+          <LinkedIn aria-hidden="true" width="24" height="24" />
+        </a>
+        <a class="social-icon" href="https://github.com/CyberSG-Zero" target="_blank" aria-label={t('a11y.github')}>
+          <GitHub aria-hidden="true" width="24" height="24" />
+        </a>
+      </div>
+
+      <div class="block">
+        <h2 class="content-subtitle">{c.inquiry}</h2>
+        <a class="email-link" href="javascript:void(0)" id="copyEmail">
+          <span>contacto</span>
+          <span>@</span>
+          <span>cybersg.dev</span>
+        </a>
+        <span id="copyMessage">{c.copied}</span>
+      </div>
+      <div>{c.location}</div>
+    </div>
+
+    <div class="contact-col">
+      <form
+        class="contact-form"
+        id="contacto-form"
+        method="POST"
+        data-thanks={thanksUrl}
+        data-sending={c.sending}
+        data-error={c.error}
+        data-send={c.send}
+      >
+        <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <label for="contact-name">
+          {c.name}
+          <input type="text" id="contact-name" name="name" placeholder={c.namePlaceholder} autocomplete="name" required />
+        </label>
+
+        <label for="contact-company">
+          {c.company}
+          <input type="text" id="contact-company" name="company" placeholder={c.companyPlaceholder} autocomplete="organization" required />
+        </label>
+
+        <label for="contact-email">
+          {c.email}
+          <input type="email" id="contact-email" name="email" placeholder={c.emailPlaceholder} autocomplete="email" required />
+        </label>
+
+        <label for="contact-message">
+          {c.message}
+          <textarea id="contact-message" name="message" placeholder={c.messagePlaceholder} required></textarea>
+        </label>
+
+        <fieldset>
+          <legend>{c.legend}</legend>
+
+          <div class="radio">
+            <input type="radio" id="motive-work" name="Motive" value="work-together" checked />
+            <label for="motive-work">{c.motiveWork}</label>
+          </div>
+
+          <div class="radio">
+            <input type="radio" id="motive-talk" name="Motive" value="talk-together" />
+            <label for="motive-talk">{c.motiveTalk}</label>
+          </div>
+        </fieldset>
+
+        <label class="checkbox" for="consent">
+          {c.consent}
+          <input type="checkbox" id="consent" name="consent" required />
+          <span class="check"></span>
+        </label>
+
+        <button type="submit" disabled>{c.send}</button>
+        <p id="contacto-estado" class="contact-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+  <script is:inline src="/js/submit_button.js" defer></script>
+  <script is:inline src="/js/copy_to_clipboard.js" defer></script>
+
+  <script>
+    import { actions } from 'astro:actions';
+    import { navigate } from 'astro:transitions/client';
+
+    function initContactForm() {
+      const form = document.getElementById('contacto-form') as HTMLFormElement | null;
+      if (!form || form.dataset.contactoReady === 'true') return;
+      form.dataset.contactoReady = 'true';
+
+      const estado = document.getElementById('contacto-estado')!;
+      const boton = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
+      const textoOriginal = form.dataset.send ?? boton.textContent ?? '';
+      const enviando = form.dataset.sending ?? '...';
+      const errorMsg = form.dataset.error ?? 'Error';
+      const thanksUrl = form.dataset.thanks ?? '/';
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        boton.disabled = true;
+        boton.textContent = enviando;
+        estado.textContent = '';
+
+        const { error } = await actions.contacto(new FormData(form));
+
+        if (error) {
+          estado.textContent = errorMsg;
+          boton.textContent = textoOriginal;
+          boton.disabled = false;
+          return;
+        }
+
+        navigate(thanksUrl);
+      });
+    }
+
+    initContactForm();
+    document.addEventListener('astro:page-load', initContactForm);
+  </script>
+</BaseLayout>

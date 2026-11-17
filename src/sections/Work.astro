@@ -1,0 +1,346 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandMark from '../icons/BrandMark.astro';
+import JavaScript from '../icons/JavaScript.astro';
+import Skill128A from '../icons/Skill128A.astro';
+import Skill128B from '../icons/Skill128B.astro';
+import Skill150A from '../icons/Skill150A.astro';
+import Skill256SolidA from '../icons/Skill256SolidA.astro';
+import Skill256SolidB from '../icons/Skill256SolidB.astro';
+import Skill27A from '../icons/Skill27A.astro';
+import SkillA from '../icons/SkillA.astro';
+import SkillB from '../icons/SkillB.astro';
+import SkillC from '../icons/SkillC.astro';
+import SkillH from '../icons/SkillH.astro';
+import SkillI from '../icons/SkillI.astro';
+import Tailwind from '../icons/Tailwind.astro';
+import { localizePath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Work | CyberSG',
+    metaDesc:
+      'Experience and selected projects by CyberSG: UX/UI design, web development and visual design for real clients.',
+    experience: 'Experience',
+    portfolio: 'Portfolio',
+    jobs: [
+      {
+        role: 'UX/UI Designer',
+        period: 'July 2026 - Present',
+        company: 'Paladini Digital',
+        desc: 'Design system and develop user interfaces for web and mobile applications.',
+      },
+      {
+        role: 'Web Developer',
+        period: 'July 2024 - July 2026',
+        company: 'e-Qapla',
+        desc: 'Mixing lots of technologies from code to design to bring clean, impact and enjoyable projects.',
+      },
+      {
+        role: 'Product Designer',
+        period: 'May 2024 - Oct 2024',
+        company: 'Softaki Software Solutions',
+        desc: 'After being promoted in my position, Project management and team support, where I overcame front-end and design challenges.',
+      },
+    ],
+    projects: [
+      { slug: 'Rectangle', title: 'El Rectangle | Open Kitchen Bar', year: '2026' },
+      { slug: 'e-Qapla', title: 'LandingPage - e-Qapla', year: '2025' },
+      { slug: 'Inmape', title: 'Redesign WebPage - Inmape', year: '2025' },
+      { slug: 'ArquiTechPro', title: 'ArquiTechPro', year: '2024' },
+      { slug: 'Intrepido_Cacao', title: 'Proyecto: Intrépido Cacao', year: '2023' },
+      { slug: 'Anilist', title: 'Anilist [//] MobileApp', year: '2022' },
+      { slug: 'Dr-Caramelo', title: 'Dr. Caramelo', year: '2023' },
+      { slug: 'No-UserName', title: 'No UserName', year: '2021' },
+    ],
+    alt: {
+      rectangle: 'Rectangle project preview video leading to the project page.',
+      eqapla: 'e-Qapla landing page preview leading to the project page.',
+      inmape: 'Inmape website redesign preview leading to the project page.',
+      arquitech: 'ArquiTechPro project preview video leading to the project page.',
+      cacao: 'Intrépido Cacao artwork leading to the project page.',
+      anilist: 'Anilist project preview video leading to the project page.',
+      drcaramelo: 'Dr. Caramelo promotional image leading to the project page.',
+      nousername: 'NoUserName comic illustration leading to the project page.',
+    },
+  },
+  es: {
+    metaTitle: 'Proyectos | CyberSG',
+    metaDesc:
+      'Experiencia y proyectos seleccionados de CyberSG: diseño UX/UI, desarrollo web y diseño visual para clientes reales.',
+    experience: 'Experiencia',
+    portfolio: 'Portafolio',
+    jobs: [
+      {
+        role: 'Diseñador UX/UI',
+        period: 'Julio 2026 - Actualidad',
+        company: 'Paladini Digital',
+        desc: 'Diseño sistemas de diseño y desarrollo interfaces para aplicaciones web y móviles.',
+      },
+      {
+        role: 'Desarrollador web',
+        period: 'Julio 2024 - Julio 2026',
+        company: 'e-Qapla',
+        desc: 'Combinando muchas tecnologías, del código al diseño, para crear proyectos limpios, impactantes y disfrutables.',
+      },
+      {
+        role: 'Diseñador de producto',
+        period: 'Mayo 2024 - Oct 2024',
+        company: 'Softaki Software Solutions',
+        desc: 'Tras ascender en mi puesto, gestión de proyectos y apoyo al equipo, donde superé retos de frontend y diseño.',
+      },
+    ],
+    projects: [
+      { slug: 'Rectangle', title: 'El Rectangle | Open Kitchen Bar', year: '2026' },
+      { slug: 'e-Qapla', title: 'Landing page - e-Qapla', year: '2025' },
+      { slug: 'Inmape', title: 'Rediseño web - Inmape', year: '2025' },
+      { slug: 'ArquiTechPro', title: 'ArquiTechPro', year: '2024' },
+      { slug: 'Intrepido_Cacao', title: 'Proyecto: Intrépido Cacao', year: '2023' },
+      { slug: 'Anilist', title: 'Anilist [//] MobileApp', year: '2022' },
+      { slug: 'Dr-Caramelo', title: 'Dr. Caramelo', year: '2023' },
+      { slug: 'No-UserName', title: 'No UserName', year: '2021' },
+    ],
+    alt: {
+      rectangle: 'Vídeo de presentación del proyecto Rectangle que lleva a la página del proyecto.',
+      eqapla: 'Vista previa de la landing de e-Qapla que lleva a la página del proyecto.',
+      inmape: 'Vista previa del rediseño web de Inmape que lleva a la página del proyecto.',
+      arquitech: 'Vídeo de presentación del proyecto ArquiTechPro que lleva a la página del proyecto.',
+      cacao: 'Ilustración del proyecto Intrépido Cacao que lleva a la página del proyecto.',
+      anilist: 'Vídeo de presentación del proyecto Anilist que lleva a la página del proyecto.',
+      drcaramelo: 'Imagen promocional de Dr. Caramelo que lleva a la página del proyecto.',
+      nousername: 'Ilustración del cómic NoUserName que lleva a la página del proyecto.',
+    },
+  },
+  ca: {
+    metaTitle: 'Projectes | CyberSG',
+    metaDesc:
+      'Experiència i projectes seleccionats de CyberSG: disseny UX/UI, desenvolupament web i disseny visual per a clients reals.',
+    experience: 'Experiència',
+    portfolio: 'Portafoli',
+    jobs: [
+      {
+        role: 'Dissenyador UX/UI',
+        period: 'Juliol 2026 - Actualitat',
+        company: 'Paladini Digital',
+        desc: 'Dissenyo sistemes de disseny i desenvolupo interfícies per a aplicacions web i mòbils.',
+      },
+      {
+        role: 'Desenvolupador web',
+        period: 'Juliol 2024 - Juliol 2026',
+        company: 'e-Qapla',
+        desc: 'Combinant moltes tecnologies, del codi al disseny, per crear projectes nets, impactants i agradables.',
+      },
+      {
+        role: 'Dissenyador de producte',
+        period: 'Maig 2024 - Oct 2024',
+        company: 'Softaki Software Solutions',
+        desc: "Després de ser ascendit, gestió de projectes i suport a l'equip, on vaig superar reptes de frontend i disseny.",
+      },
+    ],
+    projects: [
+      { slug: 'Rectangle', title: 'El Rectangle | Open Kitchen Bar', year: '2026' },
+      { slug: 'e-Qapla', title: 'Landing page - e-Qapla', year: '2025' },
+      { slug: 'Inmape', title: 'Redisseny web - Inmape', year: '2025' },
+      { slug: 'ArquiTechPro', title: 'ArquiTechPro', year: '2024' },
+      { slug: 'Intrepido_Cacao', title: 'Projecte: Intrépido Cacao', year: '2023' },
+      { slug: 'Anilist', title: 'Anilist [//] MobileApp', year: '2022' },
+      { slug: 'Dr-Caramelo', title: 'Dr. Caramelo', year: '2023' },
+      { slug: 'No-UserName', title: 'No UserName', year: '2021' },
+    ],
+    alt: {
+      rectangle: 'Vídeo de presentació del projecte Rectangle que porta a la pàgina del projecte.',
+      eqapla: "Vista prèvia de la landing d'e-Qapla que porta a la pàgina del projecte.",
+      inmape: 'Vista prèvia del redisseny web d\'Inmape que porta a la pàgina del projecte.',
+      arquitech: 'Vídeo de presentació del projecte ArquiTechPro que porta a la pàgina del projecte.',
+      cacao: 'Il·lustració del projecte Intrépido Cacao que porta a la pàgina del projecte.',
+      anilist: 'Vídeo de presentació del projecte Anilist que porta a la pàgina del projecte.',
+      drcaramelo: 'Imatge promocional de Dr. Caramelo que porta a la pàgina del projecte.',
+      nousername: 'Il·lustració del còmic NoUserName que porta a la pàgina del projecte.',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<BaseLayout lang={lang} title={c.metaTitle} description={c.metaDesc}>
+  <section class="section">
+    <div class="projects">
+      <h2 class="display-text">{c.experience}</h2>
+      <BrandMark class="ani-icon" width="380" height="400" />
+    </div>
+    {c.jobs.map((job) => (
+      <article>
+        <div class="experience-container">
+          <div class="experience">
+            <h2>{job.role}</h2>
+            <p>{job.period}</p>
+          </div>
+          <div>{job.company}</div>
+          <p>{job.desc}</p>
+        </div>
+      </article>
+    ))}
+  </section>
+
+  <section class="section">
+    <div class="projects">
+      <h1 class="display-text">{c.portfolio}</h1>
+      <BrandMark class="ani-icon" width="380" height="400" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="project-grid--work">
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/Rectangle')}>
+          <video loop autoplay preload="none" muted playsinline class="image-small projects" src="/videos/rectangle/rectangle_1.webm" aria-label={c.alt.rectangle}></video>
+          <div class="project-card__info">
+            <h3>{c.projects[0].title}</h3>
+            <div>{c.projects[0].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <Skill256SolidA />
+            <SkillB width="24" height="24" />
+            <SkillA width="24" height="24" />
+            <Tailwind xmlns="http://www.w3.org/2000/svg" width="24" height="24" />
+            <JavaScript />
+            <Skill27A width="27" height="24" />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/e-Qapla')}>
+          <picture class="image-small projects">
+            <source media="(max-width:767px)" srcset="/images/Portada_e-qapla.avif" />
+            <img loading="lazy" src="/images/Portada_e-qapla_desktop.avif" alt={c.alt.eqapla} />
+          </picture>
+          <div class="project-card__info">
+            <h3>{c.projects[1].title}</h3>
+            <div>{c.projects[1].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillC width="24" height="24" />
+            <SkillB width="24" height="24" />
+            <SkillI width="24" height="24" />
+            <JavaScript />
+            <SkillH />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/Inmape')}>
+          <img loading="lazy" class="image-small projects" src="/images/Portada_Inmape.avif" alt={c.alt.inmape} />
+          <div class="project-card__info">
+            <h3>{c.projects[2].title}</h3>
+            <div>{c.projects[2].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillC width="24" height="24" />
+            <SkillB width="24" height="24" />
+            <SkillI width="24" height="24" />
+            <JavaScript />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/ArquiTechPro')}>
+          <video loop autoplay preload="none" muted playsinline class="image-small projects" src="/videos/arquitech.webm" aria-label={c.alt.arquitech}></video>
+          <div class="project-card__info">
+            <h3>{c.projects[3].title}</h3>
+            <div>{c.projects[3].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillB width="24" height="24" />
+            <SkillI width="24" height="24" />
+            <Skill256SolidA />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/Intrepido_Cacao')}>
+          <img loading="lazy" class="image-small projects" src="/images/cacao.avif" alt={c.alt.cacao} />
+          <div class="project-card__info">
+            <h3>{c.projects[4].title}</h3>
+            <div>{c.projects[4].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillB width="24" height="24" />
+            <Skill150A fill="currentColor" width="150" height="150" />
+            <Skill256SolidB />
+            <Skill256SolidA />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/Anilist')}>
+          <video class="image-small projects" loop preload="none" autoplay muted playsinline src="/videos/anilist.mp4" aria-label={c.alt.anilist}></video>
+          <div class="project-card__info">
+            <h3>{c.projects[5].title}</h3>
+            <div>{c.projects[5].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillB width="24" height="24" />
+            <Skill256SolidA />
+            <Skill256SolidB />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/Dr-Caramelo')}>
+          <img loading="lazy" class="image-small projects" src="/images/drcaramelo.avif" alt={c.alt.drcaramelo} />
+          <div class="project-card__info">
+            <h3>{c.projects[6].title}</h3>
+            <div>{c.projects[6].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128A width="128" height="128" />
+            <Skill128B width="128" height="128" />
+            <SkillB width="24" height="24" />
+            <Skill150A fill="currentColor" width="150" height="150" />
+          </div>
+        </a>
+      </article>
+
+      <article>
+        <a class="project-card project-card--work" href={localizePath(lang, '/work/No-UserName')}>
+          <img loading="lazy" class="image-small projects" src="/images/nousername_post.avif" alt={c.alt.nousername} />
+          <div class="project-card__info">
+            <h3>{c.projects[7].title}</h3>
+            <div>{c.projects[7].year}</div>
+          </div>
+          <div class="project-card__tools">
+            <Skill128B width="128" height="128" />
+            <Skill150A fill="currentColor" width="150" height="150" />
+            <Skill128A width="128" height="128" />
+          </div>
+        </a>
+      </article>
+    </div>
+  </section>
+</BaseLayout>

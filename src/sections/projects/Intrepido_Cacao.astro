@@ -1,0 +1,124 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Intrépido Cacao | CyberSG',
+    metaDesc:
+      'Las Aventuras del Intrépido Cacao - Animation and character design project featuring a chocolate-themed adventure. Created by CyberSG.',
+    discipline: 'Animation • Character Design • Graphic design',
+    displayTitle: 'Las Aventuras del Intrépido Cacao',
+    clients: [{ logoSrc: '/images/koolch_logo.avif', alt: 'Koolch logo', name: 'Koolch' }],
+    role: 'Graphic Designer',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, Clip Studio Paint, Adobe Premiere, After Effects',
+    links: [{ label: 'PROTOTYPE [//] LINK', href: 'https://www.youtube.com/watch?v=40OqNmCiido', text: 'Season 1 - Episode 1 - Youtube' }],
+    section: {
+      kicker: '01 [//] The Context',
+      heading: 'A fight against unhealthy snacks',
+      body: `<p>This animated series is a fun, cartoonish way to <strong><i>teach kids about healthy snacking,</i></strong> aiming to instill good eating habits through engaging characters and stories.</p>`,
+    },
+    alt: {
+      hero: 'Intrépido Cacao and his team gathered fighting the evil sweets',
+      collage: 'Koolch collage',
+      cover: 'Intrépido Cacao cover',
+      video: 'Koolch animation video',
+    },
+  },
+  es: {
+    metaTitle: 'Intrépido Cacao | CyberSG',
+    metaDesc:
+      'Las Aventuras del Intrépido Cacao: proyecto de animación y diseño de personajes con una aventura temática de chocolate. Creado por CyberSG.',
+    discipline: 'Animación • Diseño de personajes • Diseño gráfico',
+    displayTitle: 'Las Aventuras del Intrépido Cacao',
+    clients: [{ logoSrc: '/images/koolch_logo.avif', alt: 'Logo de Koolch', name: 'Koolch' }],
+    role: 'Diseñador gráfico',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, Clip Studio Paint, Adobe Premiere, After Effects',
+    links: [{ label: 'ENLACE [//] PROYECTO', href: 'https://www.youtube.com/watch?v=40OqNmCiido', text: 'Temporada 1 - Episodio 1 - Youtube' }],
+    section: {
+      kicker: '01 [//] El contexto',
+      heading: 'Una lucha contra los snacks poco saludables',
+      body: `<p>Esta serie animada es una forma divertida y caricaturesca de <strong><i>enseñar a los niños a comer sano,</i></strong> con el objetivo de inculcar buenos hábitos alimenticios mediante personajes e historias atractivas.</p>`,
+    },
+    alt: {
+      hero: 'El Intrépido Cacao y su equipo reunidos luchando contra los dulces malvados',
+      collage: 'Collage de Koolch',
+      cover: 'Portada del Intrépido Cacao',
+      video: 'Vídeo de animación de Koolch',
+    },
+  },
+  ca: {
+    metaTitle: 'Intrépido Cacao | CyberSG',
+    metaDesc:
+      "Las Aventuras del Intrépido Cacao: projecte d'animació i disseny de personatges amb una aventura temàtica de xocolata. Creat per CyberSG.",
+    discipline: 'Animació • Disseny de personatges • Disseny gràfic',
+    displayTitle: 'Las Aventuras del Intrépido Cacao',
+    clients: [{ logoSrc: '/images/koolch_logo.avif', alt: 'Logotip de Koolch', name: 'Koolch' }],
+    role: 'Dissenyador gràfic',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, Clip Studio Paint, Adobe Premiere, After Effects',
+    links: [{ label: 'ENLLAÇ [//] PROJECTE', href: 'https://www.youtube.com/watch?v=40OqNmCiido', text: 'Temporada 1 - Episodi 1 - Youtube' }],
+    section: {
+      kicker: '01 [//] El context',
+      heading: 'Una lluita contra els snacks poc saludables',
+      body: `<p>Aquesta sèrie animada és una manera divertida i caricaturesca d'<strong><i>ensenyar als nens a menjar sa,</i></strong> amb l'objectiu d'inculcar bons hàbits alimentaris mitjançant personatges i històries atractives.</p>`,
+    },
+    alt: {
+      hero: "L'Intrépido Cacao i el seu equip reunits lluitant contra els dolços dolents",
+      collage: 'Collage de Koolch',
+      cover: "Portada de l'Intrépido Cacao",
+      video: "Vídeo d'animació de Koolch",
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+  links={[...c.links]}
+>
+  <section class="section">
+    <img class="image-large" src="/images/one_cacao.avif" alt={c.alt.hero} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.section.kicker}</div>
+        <div class="copy">
+          <h2>{c.section.heading}</h2>
+          <div set:html={c.section.body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/Collage_koolch.avif');">
+  </section>
+
+  <section class="section">
+    <img class="image-large" src="/images/portada_cacao.avif" alt={c.alt.cover} />
+  </section>
+
+  <section class="section">
+    <video loop preload="none" autoplay muted playsinline class="image-large" src="/videos/koolch.webm" aria-label={c.alt.video}></video>
+  </section>
+</ProjectShell>
