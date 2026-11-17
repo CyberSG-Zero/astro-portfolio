@@ -1114,6 +1114,14 @@ a.content-header.projects {
             }
         }
     }
+
+    & .contact-status {
+        min-height: 1.25rem;
+        margin: 0;
+        color: var(--accent-color);
+        font-family: 'Open Sans Variable', system-ui;
+        font-size: 0.875rem;
+    }
 }
 
 .email-link span, a.email-link {
@@ -1532,4 +1540,56 @@ footer {
 }
 ::-webkit-scrollbar-thumb{
     background: var(--text-color);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   Language switcher
+   ═══════════════════════════════════════════════════════════ */
+
+.lang-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: .25rem;
+    font-family: 'Gabarito Variable', system-ui;
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+}
+
+.lang-switch a {
+    color: white;
+    text-decoration: none;
+    opacity: .5;
+    padding: .4rem .45rem;
+    border-radius: .4rem;
+    line-height: 1;
+    transition: opacity .2s ease, background-color .2s ease;
+}
+
+.lang-switch a:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .08);
+}
+
+.lang-switch a[aria-current="true"] {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: .3em;
+}
+
+.lang-switch a:focus-visible {
+    outline: 2px solid white;
+    outline-offset: 2px;
+}
+
+.lang-switch-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (width > 1070px) {
+    .lang-switch-item {
+        margin-left: .5rem;
+    }
 }

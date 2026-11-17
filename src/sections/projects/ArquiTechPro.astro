@@ -1,0 +1,131 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'ArquiTechPro | CyberSG',
+    metaDesc:
+      'ArquiTechPro - Construction company website designed and developed by CyberSG. UX/UI design, web development, and brand identity.',
+    discipline: 'UX/UI • Web Design • Identity',
+    displayTitle: 'ArquiTechPro',
+    clients: [{ logoSrc: '/images/softaki_logo.avif', alt: 'Softaki logo', name: 'Softaki Software Solutions' }],
+    role: 'UX/UI Designer',
+    timeline: '2024',
+    stack: 'Figma, Ilustrator, Photoshop, CSS, After Effects',
+    section: {
+      kicker: '01 [//] The Context',
+      heading: 'A brick by brick',
+      body: `<p><strong><i>ArquiTechPro</i></strong> is a construction company located in Lima, Peru (established in Softaki). Their experience is formed by architects, engineers, and qualified masters where quality and responsibility are the basis of their success.</p>`,
+    },
+    alt: { video: 'ArquiTechPro website video', collage: 'ArquiTechPro collage', video2: 'ArquiTechPro brand video', video3: 'ArquiTechPro project video' },
+    ldDesc:
+      'Construction company website designed and developed by CyberSG. UX/UI design, web development, and brand identity for Softaki Software Solutions.',
+  },
+  es: {
+    metaTitle: 'ArquiTechPro | CyberSG',
+    metaDesc:
+      'ArquiTechPro: web de una empresa de construcción diseñada y desarrollada por CyberSG. Diseño UX/UI, desarrollo web e identidad de marca.',
+    discipline: 'UX/UI • Diseño web • Identidad',
+    displayTitle: 'ArquiTechPro',
+    clients: [{ logoSrc: '/images/softaki_logo.avif', alt: 'Logo de Softaki', name: 'Softaki Software Solutions' }],
+    role: 'Diseñador UX/UI',
+    timeline: '2024',
+    stack: 'Figma, Ilustrator, Photoshop, CSS, After Effects',
+    section: {
+      kicker: '01 [//] El contexto',
+      heading: 'Ladrillo a ladrillo',
+      body: `<p><strong><i>ArquiTechPro</i></strong> es una empresa de construcción ubicada en Lima, Perú (creada en Softaki). Su experiencia la forman arquitectos, ingenieros y maestros cualificados, donde la calidad y la responsabilidad son la base de su éxito.</p>`,
+    },
+    alt: { video: 'Vídeo de la web de ArquiTechPro', collage: 'Collage de ArquiTechPro', video2: 'Vídeo de marca de ArquiTechPro', video3: 'Vídeo del proyecto ArquiTechPro' },
+    ldDesc:
+      'Web de una empresa de construcción diseñada y desarrollada por CyberSG. Diseño UX/UI, desarrollo web e identidad de marca para Softaki Software Solutions.',
+  },
+  ca: {
+    metaTitle: 'ArquiTechPro | CyberSG',
+    metaDesc:
+      "ArquiTechPro: web d'una empresa de construcció dissenyada i desenvolupada per CyberSG. Disseny UX/UI, desenvolupament web i identitat de marca.",
+    discipline: 'UX/UI • Disseny web • Identitat',
+    displayTitle: 'ArquiTechPro',
+    clients: [{ logoSrc: '/images/softaki_logo.avif', alt: 'Logotip de Softaki', name: 'Softaki Software Solutions' }],
+    role: 'Dissenyador UX/UI',
+    timeline: '2024',
+    stack: 'Figma, Ilustrator, Photoshop, CSS, After Effects',
+    section: {
+      kicker: '01 [//] El context',
+      heading: 'Maó a maó',
+      body: `<p><strong><i>ArquiTechPro</i></strong> és una empresa de construcció situada a Lima, Perú (creada a Softaki). La seva experiència la formen arquitectes, enginyers i mestres qualificats, on la qualitat i la responsabilitat són la base del seu èxit.</p>`,
+    },
+    alt: { video: "Vídeo del web d'ArquiTechPro", collage: 'Collage d’ArquiTechPro', video2: 'Vídeo de marca d’ArquiTechPro', video3: 'Vídeo del projecte ArquiTechPro' },
+    ldDesc:
+      "Web d'una empresa de construcció dissenyada i desenvolupada per CyberSG. Disseny UX/UI, desenvolupament web i identitat de marca per a Softaki Software Solutions.",
+  },
+} as const;
+
+const c = copy[lang];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: 'ArquiTechPro',
+  description: c.ldDesc,
+  url: new URL('/work/ArquiTechPro', Astro.site ?? new URL('https://cybersg.dev')).href,
+  image: 'https://cybersg.dev/images/Portada_arquitech.avif',
+  inLanguage: lang,
+  author: { '@type': 'Person', name: 'Luis Salas', url: 'https://cybersg.dev' },
+  creator: { '@type': 'Person', name: 'Luis Salas' },
+  datePublished: '2024',
+  genre: 'Web Design',
+  about: [
+    { '@type': 'Thing', name: 'UX/UI Design' },
+    { '@type': 'Thing', name: 'Web Development' },
+    { '@type': 'Thing', name: 'Brand Identity' },
+  ],
+};
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+  jsonLd={jsonLd}
+>
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/arquitech.webm" aria-label={c.alt.video}></video>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.section.kicker}</div>
+        <div class="copy">
+          <h2>{c.section.heading}</h2>
+          <div set:html={c.section.body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/Collage_ArquiTechPro.avif');">
+  </section>
+
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" poster="/images/arquitech_portrait.avif" src="/videos/Arquitech_2.webm" aria-label={c.alt.video2}></video>
+  </section>
+
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/Arquitech_3.webm" aria-label={c.alt.video3}></video>
+  </section>
+</ProjectShell>

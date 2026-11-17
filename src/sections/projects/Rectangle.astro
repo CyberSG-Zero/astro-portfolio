@@ -1,0 +1,294 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'El Rectangle | CyberSG',
+    metaDesc:
+      "El Rectangle offers a powerful concept and a high-quality gastronomic experience, yet it lacked a digital presence. Our research, including user interviews and mystery shopping, revealed a significant friction point: users had misaligned expectations regarding the seating (bar vs. table) and the specific culinary proposal. The challenge was to translate the restaurant's authentic physical soul into a digital environment that clarified doubts and built trust.",
+    discipline: 'UX/UI • Web Design & Development',
+    displayTitle: 'El Rectangle | Open Kitchen Bar',
+    clients: [{ logoSrc: '/images/elisava_logo.png', alt: 'Elisava logo', name: 'Elisava, School of Design & Engineering' }],
+    role: 'Product Designer',
+    timeline: '2025-2026',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects, Astro, Tailwind CSS, JavaScript, React',
+    links: [
+      { label: 'PROTOTYPE [//] LINK', href: 'https://www.figma.com/proto/UqXSwNvkcV00xWpwK2TuhF/El-Rectangle?page-id=1381%3A1713&node-id=1381-2986&p=f&viewport=-745%2C703%2C0.07&t=3bGPmAHgVLaP5fze-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1381%3A2986', text: 'Figma Prototype' },
+      { label: 'PRODUCT [//] LINK', href: 'https://rectangle-xi.vercel.app', text: 'https://rectangle-xi.vercel.app' },
+    ],
+    next: { title: 'e-Qapla', href: '/work/e-Qapla' },
+    sections: [
+      {
+        kicker: '01 [//] The Problem',
+        heading: 'Bridging the Physical-Digital Gap',
+        body: `<p>El Rectangle offers <strong><i>a powerful concept and a high-quality gastronomic experience</i></strong>, yet it lacked a digital presence. Our research, including user interviews and mystery shopping, revealed a significant friction point: <strong><i>users had misaligned expectations</i></strong> regarding the seating <strong><i>(bar vs. table)</i></strong> and the specific culinary proposal. The challenge was to translate the restaurant's authentic physical soul into a digital environment that clarified doubts and built trust.<br><br><i>*Project assets and interface screens are presented in Spanish as per the initial requirements.</i></p>`,
+      },
+      {
+        kicker: '02 [//] Goal',
+        heading: 'Designing for Authenticity',
+        body: `<p>Based on our primary User Persona—international food enthusiasts seeking authentic local tapas—we focused on a service design strategy aimed at:<br><br><ul><li><strong>Expectation Management</strong>: Clearly communicating the venue's layout and atmosphere to avoid confusion.</li><li><strong>Digital Personality</strong>: Mirroring the restaurant's values of closeness and personalization through a cohesive digital identity.</li><li><strong>Value-Added Experience</strong>: Moving beyond a simple "online menu" to create a guided digital journey.</li></ul></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'A Guided Culinary Journey',
+        body: `<p>We designed the website as a prelude to the physical visit. To enhance the <strong><i>"closeness"</i></strong> before the user even steps into the restaurant, we implemented:<br><br><ul><li><strong>The Recommender</strong>: An interactive tool that guides users through the menu based on their preferences, acting as a digital host.</li><li><strong>Gamified Loyalty</strong>: Introduced the "Magic Dice" concept at the payment stage to add a layer of gamification and post-visit engagement, strengthening the bond with the customer.</li></ul></p>`,
+      },
+      {
+        kicker: '04 [//] Execution',
+        heading: 'Testing & Refinement',
+        body: `<p>The execution was rooted in rigorous validation. After the initial design phase, we conducted user testing to iterate on the flow.<br><br><ul><li><strong>Information Architecture</strong>: Simplified the booking and menu exploration process to ensure a frictionless experience.</li><li><strong>Visual Storytelling</strong>: Used high-quality imagery and a warm, authentic interface to reflect the tactile experience of a traditional yet modern tapas bar in Barcelona.</li></ul></p>`,
+      },
+      {
+        kicker: '05 [//] Overview',
+        heading: 'Seamless Service Design',
+        body: `<p>This Elisava Master's project resulted in a holistic digital solution that aligns El Rectangle's online image with its physical excellence.<br><br><ul><li><strong>Outcome</strong>: A website that functions as a strategic touchpoint, reducing user uncertainty and increasing engagement through personalization.</li><li><strong>Collaborative Success</strong>: Developed in a multidisciplinary team, proving that deep research and user testing are the foundations of a successful digital service.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      video: 'El Rectangle project video',
+      user1: 'User Persona n°1',
+      user2: 'User Persona n°2',
+      collage1: 'Collage showing part of the process',
+      collage2: 'Collage showing part of the process',
+      ia: 'Information architecture',
+      booking: 'Booking userflow',
+      recommender: 'Recommender userflow',
+      moodboard: "Rectangle's moodboard",
+      branding: "Rectangle's style sheet and branding",
+      mockup2: 'Web design implementation',
+      mockup1: 'Web design implementation',
+      mockup3: 'Web design implementation',
+    },
+  },
+  es: {
+    metaTitle: 'El Rectangle | CyberSG',
+    metaDesc:
+      'El Rectangle ofrece un concepto potente y una experiencia gastronómica de alta calidad, pero carecía de presencia digital. Nuestra investigación, con entrevistas a usuarios y mystery shopping, reveló un punto de fricción importante: las expectativas de los usuarios no encajaban con el tipo de asiento (barra o mesa) ni con la propuesta culinaria. El reto era traducir el alma física auténtica del restaurante a un entorno digital que aclarara dudas y generara confianza.',
+    discipline: 'UX/UI • Diseño y desarrollo web',
+    displayTitle: 'El Rectangle | Open Kitchen Bar',
+    clients: [{ logoSrc: '/images/elisava_logo.png', alt: 'Logo de Elisava', name: 'Elisava, School of Design & Engineering' }],
+    role: 'Diseñador de producto',
+    timeline: '2025-2026',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects, Astro, Tailwind CSS, JavaScript, React',
+    links: [
+      { label: 'ENLACE [//] PROTOTIPO', href: 'https://www.figma.com/proto/UqXSwNvkcV00xWpwK2TuhF/El-Rectangle?page-id=1381%3A1713&node-id=1381-2986&p=f&viewport=-745%2C703%2C0.07&t=3bGPmAHgVLaP5fze-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1381%3A2986', text: 'Prototipo en Figma' },
+      { label: 'ENLACE [//] PRODUCTO', href: 'https://rectangle-xi.vercel.app', text: 'https://rectangle-xi.vercel.app' },
+    ],
+    next: { title: 'e-Qapla', href: '/work/e-Qapla' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: 'Cerrar la brecha entre lo físico y lo digital',
+        body: `<p>El Rectangle ofrece <strong><i>un concepto potente y una experiencia gastronómica de alta calidad</i></strong>, pero carecía de presencia digital. Nuestra investigación, con entrevistas a usuarios y mystery shopping, reveló un punto de fricción importante: <strong><i>las expectativas de los usuarios no encajaban</i></strong> con el tipo de asiento <strong><i>(barra o mesa)</i></strong> ni con la propuesta culinaria concreta. El reto era traducir el alma física auténtica del restaurante a un entorno digital que aclarara dudas y generara confianza.<br><br><i>*Los recursos del proyecto y las pantallas de la interfaz se presentan en español según los requisitos iniciales.</i></p>`,
+      },
+      {
+        kicker: '02 [//] Objetivo',
+        heading: 'Diseñar para la autenticidad',
+        body: `<p>Partiendo de nuestro User Persona principal —aficionados internacionales a la gastronomía que buscan tapas locales auténticas— nos centramos en una estrategia de service design orientada a:<br><br><ul><li><strong>Gestionar las expectativas</strong>: comunicar con claridad la disposición y el ambiente del local para evitar confusión.</li><li><strong>Personalidad digital</strong>: reflejar los valores de cercanía y personalización del restaurante mediante una identidad digital coherente.</li><li><strong>Experiencia de valor añadido</strong>: ir más allá de una simple "carta online" para crear un recorrido digital guiado.</li></ul></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Un viaje culinario guiado',
+        body: `<p>Diseñamos la web como un preludio de la visita física. Para reforzar la <strong><i>"cercanía"</i></strong> antes incluso de que el usuario entre en el restaurante, implementamos:<br><br><ul><li><strong>El recomendador</strong>: una herramienta interactiva que guía al usuario por la carta según sus preferencias, actuando como un anfitrión digital.</li><li><strong>Fidelización gamificada</strong>: introdujimos el concepto "Dados Mágicos" en el momento del pago para añadir una capa de gamificación y engagement posterior a la visita, fortaleciendo el vínculo con el cliente.</li></ul></p>`,
+      },
+      {
+        kicker: '04 [//] Ejecución',
+        heading: 'Testing y refinamiento',
+        body: `<p>La ejecución se basó en una validación rigurosa. Tras la fase inicial de diseño, realizamos pruebas con usuarios para iterar sobre el flujo.<br><br><ul><li><strong>Arquitectura de la información</strong>: simplificamos el proceso de reserva y de exploración de la carta para garantizar una experiencia sin fricción.</li><li><strong>Narrativa visual</strong>: usamos imágenes de alta calidad y una interfaz cálida y auténtica para reflejar la experiencia táctil de una barra de tapas tradicional y moderna en Barcelona.</li></ul></p>`,
+      },
+      {
+        kicker: '05 [//] Resumen',
+        heading: 'Service design sin fricción',
+        body: `<p>Este proyecto del Máster de Elisava dio como resultado una solución digital integral que alinea la imagen online de El Rectangle con su excelencia física.<br><br><ul><li><strong>Resultado</strong>: una web que funciona como punto de contacto estratégico, reduciendo la incertidumbre del usuario y aumentando el engagement mediante la personalización.</li><li><strong>Éxito colaborativo</strong>: desarrollado en un equipo multidisciplinar, demostrando que la investigación profunda y el testing con usuarios son la base de un servicio digital exitoso.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      video: 'Vídeo del proyecto El Rectangle',
+      user1: 'User Persona n°1',
+      user2: 'User Persona n°2',
+      collage1: 'Collage que muestra parte del proceso',
+      collage2: 'Collage que muestra parte del proceso',
+      ia: 'Arquitectura de la información',
+      booking: 'Flujo de usuario de la reserva',
+      recommender: 'Flujo de usuario del recomendador',
+      moodboard: 'Moodboard de El Rectangle',
+      branding: 'Hoja de estilo y branding de El Rectangle',
+      mockup2: 'Implementación del diseño web',
+      mockup1: 'Implementación del diseño web',
+      mockup3: 'Implementación del diseño web',
+    },
+  },
+  ca: {
+    metaTitle: 'El Rectangle | CyberSG',
+    metaDesc:
+      "El Rectangle ofereix un concepte potent i una experiència gastronòmica d'alta qualitat, però no tenia presència digital. La nostra recerca, amb entrevistes a usuaris i mystery shopping, va revelar un punt de fricció important: les expectatives dels usuaris no encaixaven amb el tipus de seient (barra o taula) ni amb la proposta culinària. El repte era traduir l'ànima física autèntica del restaurant a un entorn digital que aclarís dubtes i generés confiança.",
+    discipline: 'UX/UI • Disseny i desenvolupament web',
+    displayTitle: 'El Rectangle | Open Kitchen Bar',
+    clients: [{ logoSrc: '/images/elisava_logo.png', alt: 'Logotip d’Elisava', name: 'Elisava, School of Design & Engineering' }],
+    role: 'Dissenyador de producte',
+    timeline: '2025-2026',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects, Astro, Tailwind CSS, JavaScript, React',
+    links: [
+      { label: 'ENLLAÇ [//] PROTOTIP', href: 'https://www.figma.com/proto/UqXSwNvkcV00xWpwK2TuhF/El-Rectangle?page-id=1381%3A1713&node-id=1381-2986&p=f&viewport=-745%2C703%2C0.07&t=3bGPmAHgVLaP5fze-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1381%3A2986', text: 'Prototip a Figma' },
+      { label: 'ENLLAÇ [//] PRODUCTE', href: 'https://rectangle-xi.vercel.app', text: 'https://rectangle-xi.vercel.app' },
+    ],
+    next: { title: 'e-Qapla', href: '/work/e-Qapla' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: 'Tancar la bretxa entre el físic i el digital',
+        body: `<p>El Rectangle ofereix <strong><i>un concepte potent i una experiència gastronòmica d'alta qualitat</i></strong>, però no tenia presència digital. La nostra recerca, amb entrevistes a usuaris i mystery shopping, va revelar un punt de fricció important: <strong><i>les expectatives dels usuaris no encaixaven</i></strong> amb el tipus de seient <strong><i>(barra o taula)</i></strong> ni amb la proposta culinària concreta. El repte era traduir l'ànima física autèntica del restaurant a un entorn digital que aclarís dubtes i generés confiança.<br><br><i>*Els recursos del projecte i les pantalles de la interfície es presenten en castellà segons els requisits inicials.</i></p>`,
+      },
+      {
+        kicker: '02 [//] Objectiu',
+        heading: 'Dissenyar per a l’autenticitat',
+        body: `<p>Partint del nostre User Persona principal —aficionats internacionals a la gastronomia que busquen tapes locals autèntiques— ens vam centrar en una estratègia de service design orientada a:<br><br><ul><li><strong>Gestionar les expectatives</strong>: comunicar amb claredat la disposició i l'ambient del local per evitar confusió.</li><li><strong>Personalitat digital</strong>: reflectir els valors de proximitat i personalització del restaurant mitjançant una identitat digital coherent.</li><li><strong>Experiència de valor afegit</strong>: anar més enllà d'una simple "carta online" per crear un recorregut digital guiat.</li></ul></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Un viatge culinari guiat',
+        body: `<p>Vam dissenyar el web com un preludi de la visita física. Per reforçar la <strong><i>"proximitat"</i></strong> abans i tot que l'usuari entri al restaurant, vam implementar:<br><br><ul><li><strong>El recomanador</strong>: una eina interactiva que guia l'usuari per la carta segons les seves preferències, actuant com a amfitrió digital.</li><li><strong>Fidelització gamificada</strong>: vam introduir el concepte "Daus Màgics" en el moment del pagament per afegir una capa de gamificació i engagement posterior a la visita, enfortint el vincle amb el client.</li></ul></p>`,
+      },
+      {
+        kicker: '04 [//] Execució',
+        heading: 'Testing i refinament',
+        body: `<p>L'execució es va basar en una validació rigorosa. Després de la fase inicial de disseny, vam fer proves amb usuaris per iterar sobre el flux.<br><br><ul><li><strong>Arquitectura de la informació</strong>: vam simplificar el procés de reserva i d'exploració de la carta per garantir una experiència sense fricció.</li><li><strong>Narrativa visual</strong>: vam fer servir imatges d'alta qualitat i una interfície càlida i autèntica per reflectir l'experiència tàctil d'una barra de tapes tradicional i moderna a Barcelona.</li></ul></p>`,
+      },
+      {
+        kicker: '05 [//] Resum',
+        heading: 'Service design sense fricció',
+        body: `<p>Aquest projecte del Màster d'Elisava va donar com a resultat una solució digital integral que alinea la imatge online d'El Rectangle amb la seva excel·lència física.<br><br><ul><li><strong>Resultat</strong>: un web que funciona com a punt de contacte estratègic, reduint la incertesa de l'usuari i augmentant l'engagement mitjançant la personalització.</li><li><strong>Èxit col·laboratiu</strong>: desenvolupat en un equip multidisciplinari, demostrant que la recerca profunda i el testing amb usuaris són la base d'un servei digital exitós.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      video: 'Vídeo del projecte El Rectangle',
+      user1: 'User Persona n°1',
+      user2: 'User Persona n°2',
+      collage1: 'Collage que mostra part del procés',
+      collage2: 'Collage que mostra part del procés',
+      ia: 'Arquitectura de la informació',
+      booking: "Flux d'usuari de la reserva",
+      recommender: "Flux d'usuari del recomanador",
+      moodboard: 'Moodboard d’El Rectangle',
+      branding: "Full d'estil i branding d'El Rectangle",
+      mockup2: 'Implementació del disseny web',
+      mockup1: 'Implementació del disseny web',
+      mockup3: 'Implementació del disseny web',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+  links={[...c.links]}
+  next={c.next}
+>
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/rectangle/rectangle_1.webm" aria-label={c.alt.video}></video>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.sections[0].kicker}</div>
+        <div class="copy">
+          <h2>{c.sections[0].heading}</h2>
+          <div set:html={c.sections[0].body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[1].kicker}</div>
+          <h2>{c.sections[1].heading}</h2>
+          <div set:html={c.sections[1].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/rectangle/user_principal.avif" alt={c.alt.user1} />
+        <img class="image" src="/images/rectangle/user_secundario.avif" alt={c.alt.user2} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[2].kicker}</div>
+          <h2>{c.sections[2].heading}</h2>
+          <div set:html={c.sections[2].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/rectangle/collage.avif" alt={c.alt.collage1} />
+        <img class="image" src="/images/rectangle/collage_2.avif" alt={c.alt.collage2} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[3].kicker}</div>
+          <h2>{c.sections[3].heading}</h2>
+          <div set:html={c.sections[3].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/rectangle/arquitecturaInformation.avif" alt={c.alt.ia} />
+        <img class="image" src="/images/rectangle/flujoReserva.avif" alt={c.alt.booking} />
+        <img class="image" src="/images/rectangle/flujoRecomendador.avif" alt={c.alt.recommender} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <img class="image" src="/images/rectangle/moodboard.avif" alt={c.alt.moodboard} />
+    <img class="image" src="/images/rectangle/materialization.avif" alt={c.alt.branding} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[4].kicker}</div>
+          <h2>{c.sections[4].heading}</h2>
+          <div set:html={c.sections[4].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/rectangle/mockup_2.avif" alt={c.alt.mockup2} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <img class="image" src="/images/rectangle/mockup_1.avif" alt={c.alt.mockup1} />
+    <img class="image" src="/images/rectangle/mockup_3.avif" alt={c.alt.mockup3} />
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/rectangle/rectangle_2.webm"></video>
+  </section>
+</ProjectShell>

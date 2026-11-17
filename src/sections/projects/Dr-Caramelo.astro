@@ -1,0 +1,117 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Dr. Caramelo | CyberSG',
+    metaDesc:
+      'Dr. Caramelo - A fictional UX/UI design project featuring a candy-themed character. Creative interface design by CyberSG.',
+    discipline: 'UX/UI • Web Design • Fictional Situation',
+    displayTitle: 'Dr. Caramelo',
+    clients: [{ logoSrc: '/images/upc_logo.avif', alt: 'UPC logo', name: 'UPC' }],
+    role: 'UX/UI Designer',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects',
+    section: {
+      kicker: '01 [//] The Context',
+      heading: 'A nerdy need',
+      body: `<p>Introducing the revolutionary smartwatch for veterinarians: <span class="text-span">Dr. Caramelo.</span> Utilizing holographic technology, it provides critical information to help vets <span class="text-span">better understand their patients.</span></p>`,
+    },
+    alt: {
+      cover: "Dr. Caramelo cover image with the phrase 'The power of knowing everything, analyzing everything, evaluating everything about your patient'.",
+      persona: 'User persona of the interviewed vets highlighting their interest in a device that gives real-time data.',
+      watches: 'Three prototypes of the final Dr. Caramelo product.',
+    },
+  },
+  es: {
+    metaTitle: 'Dr. Caramelo | CyberSG',
+    metaDesc:
+      'Dr. Caramelo: proyecto ficticio de diseño UX/UI con un personaje inspirado en los dulces. Diseño de interfaz creativo por CyberSG.',
+    discipline: 'UX/UI • Diseño web • Situación ficticia',
+    displayTitle: 'Dr. Caramelo',
+    clients: [{ logoSrc: '/images/upc_logo.avif', alt: 'Logo de UPC', name: 'UPC' }],
+    role: 'Diseñador UX/UI',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects',
+    section: {
+      kicker: '01 [//] El contexto',
+      heading: 'Una necesidad friki',
+      body: `<p>Presentamos el revolucionario smartwatch para veterinarios: <span class="text-span">Dr. Caramelo.</span> Gracias a la tecnología holográfica, ofrece información crítica para ayudar a los veterinarios a <span class="text-span">entender mejor a sus pacientes.</span></p>`,
+    },
+    alt: {
+      cover: "Imagen de portada de Dr. Caramelo con la frase 'El poder de saberlo todo, analizarlo todo y evaluarlo todo sobre tu paciente'.",
+      persona: 'User persona de los veterinarios entrevistados destacando su interés por un dispositivo que ofrezca datos en tiempo real.',
+      watches: 'Tres prototipos del producto final de Dr. Caramelo.',
+    },
+  },
+  ca: {
+    metaTitle: 'Dr. Caramelo | CyberSG',
+    metaDesc:
+      'Dr. Caramelo: projecte fictici de disseny UX/UI amb un personatge inspirat en els dolços. Disseny d’interfície creatiu per CyberSG.',
+    discipline: 'UX/UI • Disseny web • Situació fictícia',
+    displayTitle: 'Dr. Caramelo',
+    clients: [{ logoSrc: '/images/upc_logo.avif', alt: 'Logotip de la UPC', name: 'UPC' }],
+    role: 'Dissenyador UX/UI',
+    timeline: '2023',
+    stack: 'Figma, Ilustrator, Photoshop, After Effects',
+    section: {
+      kicker: '01 [//] El context',
+      heading: 'Una necessitat friki',
+      body: `<p>Us presentem el revolucionari smartwatch per a veterinaris: <span class="text-span">Dr. Caramelo.</span> Gràcies a la tecnologia hologràfica, ofereix informació crítica per ajudar els veterinaris a <span class="text-span">entendre millor els seus pacients.</span></p>`,
+    },
+    alt: {
+      cover: "Imatge de portada de Dr. Caramelo amb la frase 'El poder de saber-ho tot, analitzar-ho tot i avaluar-ho tot sobre el teu pacient'.",
+      persona: "User persona dels veterinaris entrevistats destacant el seu interès per un dispositiu que doni dades en temps real.",
+      watches: 'Tres prototips del producte final de Dr. Caramelo.',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+>
+  <section class="section">
+    <img class="image-large" src="/images/Portada_drcaramelo.avif" alt={c.alt.cover} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.section.kicker}</div>
+        <div class="copy">
+          <h2>{c.section.heading}</h2>
+          <div set:html={c.section.body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/watch.avif');">
+  </section>
+
+  <section class="section">
+    <img class="image-large" src="/images/drcaramelo_userx.avif" alt={c.alt.persona} />
+  </section>
+
+  <section class="section">
+    <img class="image-large" src="/images/dr_watches.avif" alt={c.alt.watches} />
+  </section>
+</ProjectShell>

@@ -1,0 +1,102 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Anilist | CyberSG',
+    metaDesc:
+      'Anilist mobile app concept - UX/UI design project featuring anime tracking functionality. Created by CyberSG with a modern and engaging interface.',
+    discipline: 'UX/UI • Web Design • Fictional Situation',
+    displayTitle: 'Anilist [//] MobileApp',
+    clients: [{ logoSrc: '/images/AniList_logo.avif', alt: 'Anilist logo', name: 'Anilist' }],
+    role: 'UX/UI Designer',
+    timeline: '2022',
+    stack: 'Figma, Ilustrator, Photoshop, Adobe Premiere, After Effects',
+    section: {
+      kicker: '01 [//] The Context',
+      heading: 'A nerdy need',
+      body: `<p>Anilist is an <strong><i>online database and social network for Asian animated series and graphic novels.</i></strong> A mobile app is being developed to enhance the user experience and fully utilize the web version's features.</p>`,
+    },
+    alt: { video: 'Anilist mobile app video', video2: 'Anilist app screens', video3: 'Anilist interface animation' },
+  },
+  es: {
+    metaTitle: 'Anilist | CyberSG',
+    metaDesc:
+      'Concepto de app móvil para Anilist: proyecto de diseño UX/UI con funciones de seguimiento de anime. Creado por CyberSG con una interfaz moderna y atractiva.',
+    discipline: 'UX/UI • Diseño web • Situación ficticia',
+    displayTitle: 'Anilist [//] MobileApp',
+    clients: [{ logoSrc: '/images/AniList_logo.avif', alt: 'Logo de Anilist', name: 'Anilist' }],
+    role: 'Diseñador UX/UI',
+    timeline: '2022',
+    stack: 'Figma, Ilustrator, Photoshop, Adobe Premiere, After Effects',
+    section: {
+      kicker: '01 [//] El contexto',
+      heading: 'Una necesidad friki',
+      body: `<p>Anilist es una <strong><i>base de datos online y red social de series animadas y novelas gráficas asiáticas.</i></strong> Se está desarrollando una app móvil para mejorar la experiencia de usuario y aprovechar al máximo las funciones de la versión web.</p>`,
+    },
+    alt: { video: 'Vídeo de la app móvil Anilist', video2: 'Pantallas de la app Anilist', video3: 'Animación de la interfaz de Anilist' },
+  },
+  ca: {
+    metaTitle: 'Anilist | CyberSG',
+    metaDesc:
+      "Concepte d'app mòbil per a Anilist: projecte de disseny UX/UI amb funcions de seguiment d'anime. Creat per CyberSG amb una interfície moderna i atractiva.",
+    discipline: 'UX/UI • Disseny web • Situació fictícia',
+    displayTitle: 'Anilist [//] MobileApp',
+    clients: [{ logoSrc: '/images/AniList_logo.avif', alt: 'Logotip d’Anilist', name: 'Anilist' }],
+    role: 'Dissenyador UX/UI',
+    timeline: '2022',
+    stack: 'Figma, Ilustrator, Photoshop, Adobe Premiere, After Effects',
+    section: {
+      kicker: '01 [//] El context',
+      heading: 'Una necessitat friki',
+      body: `<p>Anilist és una <strong><i>base de dades en línia i xarxa social de sèries animades i novel·les gràfiques asiàtiques.</i></strong> S'està desenvolupant una app mòbil per millorar l'experiència d'usuari i aprofitar al màxim les funcions de la versió web.</p>`,
+    },
+    alt: { video: "Vídeo de l'app mòbil Anilist", video2: "Pantalles de l'app Anilist", video3: "Animació de la interfície d'Anilist" },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+>
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/anilist.webm" aria-label={c.alt.video}></video>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.section.kicker}</div>
+        <div class="copy">
+          <h2>{c.section.heading}</h2>
+          <div set:html={c.section.body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/anilist_2.webm" poster="/images/anilist_portrait.avif" aria-label={c.alt.video2}></video>
+  </section>
+
+  <section class="section">
+    <video loop preload="none" autoplay muted class="image-large" src="/videos/anilist_1.webm" aria-label={c.alt.video3}></video>
+  </section>
+</ProjectShell>

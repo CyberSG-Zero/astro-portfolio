@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowRight from '../icons/ArrowRight.astro';
+import BrandMark from '../icons/BrandMark.astro';
+import GitHub from '../icons/GitHub.astro';
+import Instagram from '../icons/Instagram.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import { localizePath, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const copy = {
+  en: {
+    metaTitle: 'Freelance Web Development Solutions | CyberSG',
+    metaDesc:
+      'CyberSG is a Freelancer Web Developer with illustrations and graphic skills to solve your digital problems. Contact me today to discuss your project!',
+    heroTitle: 'Product Designer & Web Developer',
+    heroLead:
+      'I turn <strong><i>business ideas</i></strong> into <strong><i>digital products</i></strong> that work: design, code, and testing all in one place.',
+    ctaTalk: "Let's talk about your project",
+    ctaProjects: 'See my projects',
+    aboutTitle: "Hi! I'm Luis Salas",
+    aboutP1:
+      "I'm a passionate Visual Designer, born in Lima, Peru and trained at LABASAD Barcelona School of Arts & Design and Elisava School of Design & Engineering.",
+    aboutP2:
+      "<br>My career has led me to work in <strong><i>UX/UI</i></strong> and <strong><i>web design studios</i></strong>, where I've had the opportunity to develop my skills as a digital artist and art director.",
+    aboutP3:
+      '<br>I firmly believe that the success of a project lies in <strong><i>collaboration</i></strong> and <strong><i>the creation of impactful visual experiences.</i></strong>',
+    aboutP4:
+      "<br>I'm excited about the idea of working with you to <strong><i>bring your ideas to life</i></strong> and together build a project that exceeds your expectations.",
+    testimony: 'Testimony',
+    quote:
+      'Working with Luis has been a great experience for me. He has shown a highly versatile technical and design profile, participating comprehensively throughout the entire lifecycle of our digital products. Especially our Landing Page, which has allowed us to increase our leads by 28% and number of clients after the redesign. And with that, more projects.',
+    quoteNote: '[Translation from Spanish]',
+    skillsIntro:
+      'In my day-to-day work, I focus on the design and development of digital products for websites and web applications:',
+    cards: [
+      { title: 'Frontend Development', desc: "Development of visual appearance to improve the user's web experience." },
+      { title: 'Visual Design', desc: 'UI • Aesthetic creation of visual elements for the interface.' },
+      { title: 'Interface Design', desc: 'UX • Effective design of the user interface.' },
+      {
+        title: 'Testing',
+        desc: 'Meticulous review of interactions, accessibility standards, and visual fidelity to guarantee the final product meets both design specifications and business goals.',
+      },
+      { title: 'AI Automatization', desc: 'Implementation of smart solutions to optimize processes and solve complex problems.' },
+    ],
+    projectsIntro: 'Here is some of my achievements with my successful clients',
+    tags: { restaurant: '[ Restaurant ]', startup: '[ Startup ]', tech: '[ Tech ]', architecture: '[ Architecture ]' },
+    seeAll: 'See all projects',
+    alt: {
+      hero: 'CyberSG portrait',
+      eqapla: 'e-Qapla landing page preview leading to the project page.',
+      rectangle: 'Promotional video of the Rectangle project leading to the project page.',
+      anilist: 'Promotional video of the Anilist project leading to the project page.',
+      arquitech: 'Promotional video of the ArquiTechPro project leading to the project page.',
+    },
+  },
+  es: {
+    metaTitle: 'Desarrollo web freelance | CyberSG',
+    metaDesc:
+      'CyberSG es un desarrollador web freelance con habilidades de ilustración y diseño gráfico para resolver tus problemas digitales. ¡Hablemos de tu proyecto!',
+    heroTitle: 'Diseñador de producto y desarrollador web',
+    heroLead:
+      'Convierto <strong><i>ideas de negocio</i></strong> en <strong><i>productos digitales</i></strong> que funcionan: diseño, código y pruebas en un mismo lugar.',
+    ctaTalk: 'Hablemos de tu proyecto',
+    ctaProjects: 'Ver mis proyectos',
+    aboutTitle: '¡Hola! Soy Luis Salas',
+    aboutP1:
+      'Soy un diseñador visual apasionado, nacido en Lima, Perú y formado en LABASAD Barcelona School of Arts & Design y Elisava School of Design & Engineering.',
+    aboutP2:
+      '<br>Mi carrera me ha llevado a trabajar en <strong><i>UX/UI</i></strong> y <strong><i>estudios de diseño web</i></strong>, donde he podido desarrollar mis habilidades como artista digital y director de arte.',
+    aboutP3:
+      '<br>Creo firmemente que el éxito de un proyecto reside en la <strong><i>colaboración</i></strong> y en <strong><i>la creación de experiencias visuales impactantes.</i></strong>',
+    aboutP4:
+      '<br>Me entusiasma la idea de trabajar contigo para <strong><i>dar vida a tus ideas</i></strong> y construir juntos un proyecto que supere tus expectativas.',
+    testimony: 'Testimonio',
+    quote:
+      'Trabajar con Luis ha sido una gran experiencia para mí. Ha demostrado un perfil técnico y de diseño muy versátil, participando de forma integral en todo el ciclo de vida de nuestros productos digitales. Especialmente en nuestra Landing Page, que nos ha permitido aumentar un 28% los leads y el número de clientes tras el rediseño. Y, con ello, más proyectos.',
+    quoteNote: '',
+    skillsIntro:
+      'En mi día a día me centro en el diseño y desarrollo de productos digitales para sitios web y aplicaciones web:',
+    cards: [
+      { title: 'Desarrollo frontend', desc: 'Desarrollo de la apariencia visual para mejorar la experiencia web del usuario.' },
+      { title: 'Diseño visual', desc: 'UI • Creación estética de los elementos visuales de la interfaz.' },
+      { title: 'Diseño de interfaz', desc: 'UX • Diseño eficaz de la interfaz de usuario.' },
+      {
+        title: 'Testing',
+        desc: 'Revisión minuciosa de interacciones, estándares de accesibilidad y fidelidad visual para garantizar que el producto final cumpla tanto las especificaciones de diseño como los objetivos de negocio.',
+      },
+      { title: 'Automatización con IA', desc: 'Implementación de soluciones inteligentes para optimizar procesos y resolver problemas complejos.' },
+    ],
+    projectsIntro: 'Estos son algunos de mis logros con clientes satisfechos',
+    tags: { restaurant: '[ Restaurante ]', startup: '[ Startup ]', tech: '[ Tecnología ]', architecture: '[ Arquitectura ]' },
+    seeAll: 'Ver todos los proyectos',
+    alt: {
+      hero: 'Retrato de CyberSG',
+      eqapla: 'Vista previa de la landing de e-Qapla que lleva a la página del proyecto.',
+      rectangle: 'Vídeo promocional del proyecto Rectangle que lleva a la página del proyecto.',
+      anilist: 'Vídeo promocional del proyecto Anilist que lleva a la página del proyecto.',
+      arquitech: 'Vídeo promocional del proyecto ArquiTechPro que lleva a la página del proyecto.',
+    },
+  },
+  ca: {
+    metaTitle: 'Desenvolupament web freelance | CyberSG',
+    metaDesc:
+      "CyberSG és un desenvolupador web freelance amb habilitats d'il·lustració i disseny gràfic per resoldre els teus problemes digitals. Parlem del teu projecte!",
+    heroTitle: 'Dissenyador de producte i desenvolupador web',
+    heroLead:
+      'Converteixo <strong><i>idees de negoci</i></strong> en <strong><i>productes digitals</i></strong> que funcionen: disseny, codi i proves en un mateix lloc.',
+    ctaTalk: 'Parlem del teu projecte',
+    ctaProjects: 'Veure els meus projectes',
+    aboutTitle: 'Hola! Sóc Luis Salas',
+    aboutP1:
+      "Sóc un dissenyador visual apassionat, nascut a Lima, Perú i format a LABASAD Barcelona School of Arts & Design i Elisava School of Design & Engineering.",
+    aboutP2:
+      "<br>La meva carrera m'ha portat a treballar en <strong><i>UX/UI</i></strong> i <strong><i>estudis de disseny web</i></strong>, on he pogut desenvolupar les meves habilitats com a artista digital i director d'art.",
+    aboutP3:
+      "<br>Crec fermament que l'èxit d'un projecte rau en la <strong><i>col·laboració</i></strong> i en <strong><i>la creació d'experiències visuals impactants.</i></strong>",
+    aboutP4:
+      '<br>Em fa molta il·lusió treballar amb tu per <strong><i>donar vida a les teves idees</i></strong> i construir junts un projecte que superi les teves expectatives.',
+    testimony: 'Testimoni',
+    quote:
+      "Treballar amb en Luis ha estat una gran experiència per a mi. Ha demostrat un perfil tècnic i de disseny molt versàtil, participant de manera integral en tot el cicle de vida dels nostres productes digitals. Especialment a la nostra Landing Page, que ens ha permès augmentar un 28% els leads i el nombre de clients després del redisseny. I, amb això, més projectes.",
+    quoteNote: '',
+    skillsIntro:
+      'En el meu dia a dia em centro en el disseny i desenvolupament de productes digitals per a llocs web i aplicacions web:',
+    cards: [
+      { title: 'Desenvolupament frontend', desc: "Desenvolupament de l'aparença visual per millorar l'experiència web de l'usuari." },
+      { title: 'Disseny visual', desc: "UI • Creació estètica dels elements visuals de la interfície." },
+      { title: "Disseny d'interfície", desc: "UX • Disseny eficaç de la interfície d'usuari." },
+      {
+        title: 'Testing',
+        desc: "Revisió minuciosa d'interaccions, estàndards d'accessibilitat i fidelitat visual per garantir que el producte final compleixi tant les especificacions de disseny com els objectius de negoci.",
+      },
+      { title: 'Automatització amb IA', desc: 'Implementació de solucions intel·ligents per optimitzar processos i resoldre problemes complexos.' },
+    ],
+    projectsIntro: 'Aquests són alguns dels meus èxits amb clients satisfets',
+    tags: { restaurant: '[ Restaurant ]', startup: '[ Startup ]', tech: '[ Tecnologia ]', architecture: '[ Arquitectura ]' },
+    seeAll: 'Veure tots els projectes',
+    alt: {
+      hero: 'Retrat de CyberSG',
+      eqapla: "Vista prèvia de la landing d'e-Qapla que porta a la pàgina del projecte.",
+      rectangle: 'Vídeo promocional del projecte Rectangle que porta a la pàgina del projecte.',
+      anilist: 'Vídeo promocional del projecte Anilist que porta a la pàgina del projecte.',
+      arquitech: 'Vídeo promocional del projecte ArquiTechPro que porta a la pàgina del projecte.',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<BaseLayout
+  lang={lang}
+  title={c.metaTitle}
+  description={c.metaDesc}
+  autoDetectLang={lang === 'en'}
+>
+  <!-- Hero -->
+  <section class="section">
+    <div class="container">
+      <h1 class="text-changer">{c.heroTitle}</h1>
+      <div class="title-block">
+        <p class="content-description prose" set:html={c.heroLead}></p>
+      </div>
+      <div class="button-row">
+        <a class="button outlink" href={localizePath(lang, '/contact')}> {c.ctaTalk}
+          <ArrowRight />
+        </a>
+        <a class="button" href={localizePath(lang, '/work')}> {c.ctaProjects}
+          <ArrowRight />
+        </a>
+      </div>
+      <div class="social-icons">
+        <a class="social-icon" href="https://www.instagram.com/cybersg_zero/" target="_blank" aria-label={t('a11y.instagram')}>
+          <Instagram aria-hidden="true" width="24" height="24" />
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/in/cybersg/" target="_blank" aria-label={t('a11y.linkedin')}>
+          <LinkedIn aria-hidden="true" width="24" height="24" />
+        </a>
+        <a class="social-icon" href="https://github.com/CyberSG-Zero" target="_blank" aria-label={t('a11y.github')}>
+          <GitHub aria-hidden="true" width="24" height="24" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section class="section layout-split">
+    <div class="image-column image-column--hero">
+      <img loading="eager" src="/images/Luis_photo.avif" alt={c.alt.hero}>
+    </div>
+    <div class="stats-section">
+      <div class="heading-row">
+        <h1 class="section-title">{c.aboutTitle}</h1>
+        <BrandMark class="ani-icon" width="30" height="30" />
+      </div>
+      <div class="content-description prose">
+        <p>{c.aboutP1}</p>
+        <p set:html={c.aboutP2}></p>
+        <p set:html={c.aboutP3}></p>
+        <p set:html={c.aboutP4}></p>
+      </div>
+      <div class="block expanded">
+        <h2>{c.testimony}</h2>
+        <div class="block">
+          <div class="clients testimony">
+            <img src="/images/e-qapla_logo.avif" alt="e-Qapla" />
+            Hernan Arevalo [//] e-Qapla
+          </div>
+          <p>
+            {c.quote}{c.quoteNote && <><br><br>{c.quoteNote}</>}
+          </p>
+        </div>
+      </div>
+    </div>
+    <div></div>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section">
+    <div class="content-description">{c.skillsIntro}</div>
+    <div class="card-wrapper">
+      <div class="card">
+        <pixel-canvas data-gap="10" data-no-focus></pixel-canvas>
+        <div class="card-content">
+          <div class="card-top">01</div>
+          <h2 class="card-title">{c.cards[0].title}</h2>
+          <p class="card-description">{c.cards[0].desc}</p>
+        </div>
+      </div>
+
+      <div class="card" style="--active-color: #e0f2fe">
+        <pixel-canvas data-gap="10" data-speed="25" data-colors="#e0f2fe, #7dd3fc, #0ea5e9" data-no-focus></pixel-canvas>
+        <div class="card-content">
+          <div class="card-top">02</div>
+          <h2 class="card-title">{c.cards[1].title}</h2>
+          <p class="card-description">{c.cards[1].desc}</p>
+        </div>
+      </div>
+
+      <div class="card" style="--active-color: #fef08a">
+        <pixel-canvas data-gap="10" data-speed="25" data-colors="#fef08a, #fde047, #eab308" data-no-focus></pixel-canvas>
+        <div class="card-content">
+          <div class="card-top">03</div>
+          <h2 class="card-title">{c.cards[2].title}</h2>
+          <p class="card-description">{c.cards[2].desc}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-wrapper">
+      <div class="card" style="--active-color: #fecdd3">
+        <pixel-canvas data-gap="10" data-speed="25" data-colors="#fda4af, #e11d48" data-no-focus></pixel-canvas>
+        <div class="card-content">
+          <div class="card-top">04</div>
+          <h2 class="card-title">{c.cards[3].title}</h2>
+          <p class="card-description">{c.cards[3].desc}</p>
+        </div>
+      </div>
+      <div class="card" style="--active-color: #fecdd3">
+        <pixel-canvas data-gap="10" data-speed="25" data-colors="#74c365" data-no-focus></pixel-canvas>
+        <div class="card-content">
+          <div class="card-top">05</div>
+          <h2 class="card-title">{c.cards[4].title}</h2>
+          <p class="card-description">{c.cards[4].desc}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section class="section center">
+    <div class="container">
+      <div class="content-description">{c.projectsIntro}</div>
+      <a class="project-card project-card--featured" href={localizePath(lang, '/work/Rectangle')}>
+        <article>
+          <div class="project-card__overlay"></div>
+          <video loop preload="none" autoplay muted class="project-card__media" src="/videos/rectangle/rectangle_1.webm" poster="/images/rectangle/mockup_1.avif" aria-label={c.alt.rectangle}></video>
+          <h3 class="project-card__title">El Rectangle | Open Kitchen Bar</h3>
+          <div class="project-tag">{c.tags.restaurant}</div>
+        </article>
+      </a>
+      <div class="project-grid">
+        <a class="project-card project-card--small" href={localizePath(lang, '/work/e-Qapla')}>
+          <article>
+            <div class="project-card__overlay"></div>
+            <img loading="lazy" class="project-card__media" src="/images/Portada_e-qapla_desktop.avif" alt={c.alt.eqapla} width="400" height="300" />
+            <h3 class="project-card__title">Landing Page - e-Qapla</h3>
+            <div class="project-tag">{c.tags.startup}</div>
+          </article>
+        </a>
+        <a class="project-card project-card--small" href={localizePath(lang, '/work/Anilist')}>
+          <article>
+            <div class="project-card__overlay"></div>
+            <video class="project-card__media" loop preload="none" autoplay muted src="/videos/anilist.webm" poster="/images/anilist_portrait.avif" aria-label={c.alt.anilist}></video>
+            <h3 class="project-card__title">Anilist [//] MobileApp</h3>
+            <div class="project-tag">{c.tags.tech}</div>
+          </article>
+        </a>
+        <a class="project-card project-card--small" href={localizePath(lang, '/work/ArquiTechPro')}>
+          <article>
+            <div class="project-card__overlay"></div>
+            <video class="project-card__media" loop preload="none" autoplay muted src="/videos/arquitech.webm" poster="/images/arquitech_portrait.avif" aria-label={c.alt.arquitech}></video>
+            <h3 class="project-card__title">ArquiTechPro</h3>
+            <div class="project-tag">{c.tags.architecture}</div>
+          </article>
+        </a>
+      </div>
+      <div class="button-row center">
+        <a class="button" href={localizePath(lang, '/work')}>{c.seeAll}</a>
+      </div>
+    </div>
+  </section>
+
+  <script is:inline type="module" src="/js/pixel-canvas.js"></script>
+</BaseLayout>

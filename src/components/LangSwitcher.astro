@@ -1,0 +1,31 @@
+---
+import { localizePath, stripLocale, useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const path = stripLocale(Astro.url.pathname);
+
+const options = [
+  { code: 'en' as Lang, label: 'EN', name: 'English', hreflang: 'en' },
+  { code: 'es' as Lang, label: 'ES', name: 'Español', hreflang: 'es-ES' },
+  { code: 'ca' as Lang, label: 'CA', name: 'Català', hreflang: 'ca-ES' },
+];
+---
+
+<nav class="lang-switch" aria-label={t('nav.lang')}>
+  {options.map(({ code, label, name, hreflang }) => (
+    <a
+      href={localizePath(code, path)}
+      hreflang={hreflang}
+      lang={code}
+      title={name}
+      data-lang={code}
+      aria-current={code === lang ? 'true' : undefined}
+    >{label}</a>
+  ))}
+</nav>

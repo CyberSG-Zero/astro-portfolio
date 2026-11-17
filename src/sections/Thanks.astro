@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArrowBack from '../icons/ArrowBack.astro';
+import BrandMark from '../icons/BrandMark.astro';
+import GitHub from '../icons/GitHub.astro';
+import Instagram from '../icons/Instagram.astro';
+import LinkedIn from '../icons/LinkedIn.astro';
+import { localizePath } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Thank you | CyberSG',
+    metaDesc: 'Thank you for contacting CyberSG.',
+    submitted: 'Form submitted',
+    heading: 'Thank you for your time',
+    body:
+      'Within <strong><i>1–3 days</i></strong> you will receive an email from me to arrange our meeting.',
+    copied: 'Copied to clipboard!',
+    backHome: 'Back to Home',
+  },
+  es: {
+    metaTitle: 'Gracias | CyberSG',
+    metaDesc: 'Gracias por contactar con CyberSG.',
+    submitted: 'Formulario enviado',
+    heading: 'Gracias por tu tiempo',
+    body:
+      'En un plazo de <strong><i>1-3 días</i></strong> recibirás un correo de mi parte para coordinar nuestra reunión.',
+    copied: '¡Copiado al portapapeles!',
+    backHome: 'Volver al inicio',
+  },
+  ca: {
+    metaTitle: 'Gràcies | CyberSG',
+    metaDesc: 'Gràcies per contactar amb CyberSG.',
+    submitted: 'Formulari enviat',
+    heading: 'Gràcies pel teu temps',
+    body:
+      'En un termini de <strong><i>1-3 dies</i></strong> rebràs un correu de la meva part per coordinar la nostra reunió.',
+    copied: 'Copiat al porta-retalls!',
+    backHome: "Torna a l'inici",
+  },
+} as const;
+
+const c = copy[lang];
+
+const alternatePaths = {
+  en: '/thank-you-page',
+  es: '/gracias',
+  ca: '/gracies',
+} as const;
+---
+
+<BaseLayout
+  lang={lang}
+  title={c.metaTitle}
+  description={c.metaDesc}
+  noindex
+  showHeader={false}
+  showFooter={false}
+  mainClass="thanks"
+  alternatePaths={alternatePaths}
+>
+  <!-- Thank You :D -->
+  <section class="section layout-split">
+    <div class="container center">
+      <div class="block center">
+        <div class="content-subtitle">{c.submitted}</div>
+        <div class="heading-row thank">
+          <h1 class="section-title thank">{c.heading}</h1>
+          <BrandMark class="ani-icon" width="30" height="30" />
+        </div>
+        <div class="content-description thank">
+          <p set:html={c.body}></p>
+        </div>
+        <div class="social-icons">
+          <a class="social-icon" href="https://www.instagram.com/cybersg_zero/" target="_blank" aria-label="Instagram">
+            <Instagram width="24" height="24" />
+          </a>
+          <a class="social-icon" href="https://www.linkedin.com/in/cybersg/" target="_blank" aria-label="LinkedIn">
+            <LinkedIn width="24" height="24" />
+          </a>
+          <a class="social-icon" href="https://github.com/CyberSG-Zero" target="_blank" aria-label="GitHub">
+            <GitHub width="24" height="24" />
+          </a>
+        </div>
+      </div>
+      <div class="block">
+        <a class="email-link" href="javascript:void(0)" id="copyEmail">
+          <span>luissalas2706</span>
+          <span>@</span>
+          <span>gmail.com</span>
+        </a>
+        <span id="copyMessage">{c.copied}</span>
+      </div>
+      <a class="button" href={localizePath(lang, '/')}>
+        <ArrowBack width="24" height="24" />
+        {c.backHome}
+      </a>
+    </div>
+  </section>
+
+  <script is:inline src="/js/copy_to_clipboard.js" defer></script>
+</BaseLayout>

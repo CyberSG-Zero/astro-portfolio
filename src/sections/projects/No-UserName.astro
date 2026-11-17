@@ -1,0 +1,110 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'No-UserName | CyberSG',
+    metaDesc: 'No-UserName - Character design and digital illustration project. Creative character artwork by CyberSG.',
+    discipline: 'Character Design • Digital Illustration',
+    displayTitle: 'No-UserName',
+    clients: [{ logoSrc: '/images/myself.avif', alt: 'CyberSG logo', name: 'CyberSG' }],
+    role: 'Illustrator',
+    timeline: '2021',
+    stack: 'Clip Studio Paint, Ilustrator, Photoshop',
+    section: {
+      kicker: '01 [//] Story',
+      heading: "'They say that a NAME defines a person.'",
+      body: `<p>Born unable to see the world, but having tasted its worst side. <strong><i>["No-Username"]</i></strong> reaches the age of choosing whether to continue living or to rest in peace, but a <strong><i>gift from her missing father</i></strong> will make her doubt. Finding her father to discover her true name is her mission.</p>`,
+    },
+    alt: {
+      cover: 'No-UserName comic cover illustration, falling while grabbing a glowing puzzle piece.',
+      collage: 'NoUserName collage',
+      sheet: 'Character sheet of No-UserName with different views and emotions such as anger, despair and sadness.',
+    },
+  },
+  es: {
+    metaTitle: 'No-UserName | CyberSG',
+    metaDesc: 'No-UserName: proyecto de diseño de personajes e ilustración digital. Arte creativo de personajes por CyberSG.',
+    discipline: 'Diseño de personajes • Ilustración digital',
+    displayTitle: 'No-UserName',
+    clients: [{ logoSrc: '/images/myself.avif', alt: 'Logo de CyberSG', name: 'CyberSG' }],
+    role: 'Ilustrador',
+    timeline: '2021',
+    stack: 'Clip Studio Paint, Ilustrator, Photoshop',
+    section: {
+      kicker: '01 [//] Historia',
+      heading: "'Dicen que un NOMBRE define a una persona.'",
+      body: `<p>Nació sin poder ver el mundo, pero habiendo probado su peor cara. <strong><i>["No-Username"]</i></strong> llega a la edad de elegir si seguir viviendo o descansar en paz, pero un <strong><i>regalo de su padre desaparecido</i></strong> la hará dudar. Encontrar a su padre para descubrir su verdadero nombre es su misión.</p>`,
+    },
+    alt: {
+      cover: 'Ilustración de la portada del cómic No-UserName cayendo y agarrando una pieza de puzle que brilla.',
+      collage: 'Collage de NoUserName',
+      sheet: 'Character sheet de No-UserName con diferentes vistas y emociones como enfado, desesperación o tristeza.',
+    },
+  },
+  ca: {
+    metaTitle: 'No-UserName | CyberSG',
+    metaDesc: 'No-UserName: projecte de disseny de personatges i il·lustració digital. Art creatiu de personatges per CyberSG.',
+    discipline: 'Disseny de personatges • Il·lustració digital',
+    displayTitle: 'No-UserName',
+    clients: [{ logoSrc: '/images/myself.avif', alt: 'Logotip de CyberSG', name: 'CyberSG' }],
+    role: 'Il·lustrador',
+    timeline: '2021',
+    stack: 'Clip Studio Paint, Ilustrator, Photoshop',
+    section: {
+      kicker: '01 [//] Història',
+      heading: "'Diuen que un NOM defineix una persona.'",
+      body: `<p>Va néixer sense poder veure el món, però havent tastat la seva pitjor cara. <strong><i>["No-Username"]</i></strong> arriba a l'edat de triar si continuar vivint o descansar en pau, però un <strong><i>regal del seu pare desaparegut</i></strong> la farà dubtar. Trobar el seu pare per descobrir el seu veritable nom és la seva missió.</p>`,
+    },
+    alt: {
+      cover: 'Il·lustració de la portada del còmic No-UserName caient i agafant una peça de trencaclosques que brilla.',
+      collage: 'Collage de NoUserName',
+      sheet: "Character sheet de No-UserName amb diferents vistes i emocions com ràbia, desesperació o tristesa.",
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+>
+  <section class="section">
+    <img class="image-large" loading="eager" src="/images/nousername_post.avif" alt={c.alt.cover} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.section.kicker}</div>
+        <div class="copy">
+          <h2>{c.section.heading}</h2>
+          <div set:html={c.section.body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/Collage_nousername.avif');">
+  </section>
+
+  <section class="section">
+    <img class="image-large" loading="lazy" src="/images/nousername_sheet_3.avif" alt={c.alt.sheet} />
+  </section>
+</ProjectShell>

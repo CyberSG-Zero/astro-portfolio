@@ -1,0 +1,192 @@
+---
+import ProjectShell from './ProjectShell.astro';
+import type { Lang } from '../../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+
+const copy = {
+  en: {
+    metaTitle: 'Inmape | CyberSG',
+    metaDesc:
+      'Inmape website redesign - UX/UI design and web development project for a Peruvian industrial maintenance company. Modern and responsive interface created by CyberSG.',
+    discipline: 'UX/UI • Web Design • Web Development',
+    displayTitle: 'Redesign WebPage - Inmape',
+    clients: [
+      { logoSrc: '/images/e-qapla_logo.avif', alt: 'e-Qapla logo', name: 'e-Qapla' },
+      { logoSrc: '/images/inmape_logo.avif', alt: 'Inmape logo', name: 'Inmape' },
+    ],
+    role: 'UX/UI Designer',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript',
+    links: [{ label: 'PROTOTYPE [//] LINK', href: 'https://inmapesrl.com', text: 'https://inmapesrl.com' }],
+    next: { title: 'ArquiTechPro', href: '/work/ArquiTechPro' },
+    sections: [
+      {
+        kicker: '01 [//] The Problem',
+        heading: 'Legacy Reputation, Outdated Presence',
+        body: `<p>Despite having over 25 years of expertise in high-level industrial maintenance, <strong><i>INMAPE S.R.L.</i></strong> faced a significant digital gap. Their existing website failed to reflect their <strong><i>technical leadership</i></strong>, resulting in low lead generation and a brand image that didn't match the precision and scale of their electrical and mechanical services.</p>`,
+      },
+      {
+        kicker: '02 [//] Goal',
+        heading: 'Engineering a Digital Authority',
+        body: `<p>The goal was to transform the website from a static brochure into a powerful lead-generation tool. Our strategy focused on:<br><br><ul><li><strong>Modernization</strong>: Overhauling the visual identity to align with international engineering standards.</li><li><strong>Service Hierarchy</strong>: Organizing complex solutions (electrical, mechanical, metalworking) into an easy-to-navigate architecture.</li><li><strong>Trust Building</strong>: Highlighting 25 years of experience through social proof and technical certifications to attract B2B clients.</li></ul><br><br>Covering every step of the process: <strong><i>[userflow, prototyping, reviews, testing of form process]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Intuitive Service Discovery',
+        body: `<p>We designed a navigation flow that prioritizes <strong><i>"Ease of Access."</i></strong> Understanding that industrial clients often look for specific technical solutions, we implemented:<br><br><ul><li><strong>Categorized Navigation</strong>: A streamlined menu that separates maintenance types (preventive, predictive, corrective) for instant identification.</li><li><strong>Smart Contact Points</strong>: Strategically placed CTA (Call to Action) buttons that allow potential clients to request quotes or technical visits with minimal clicks.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: 'Inmape website redesign mockup inside a phone with a blurred home page background',
+      process: 'Web design process',
+      implementation: 'Web design implementation on Webflow, showing Home and About screens',
+    },
+  },
+  es: {
+    metaTitle: 'Inmape | CyberSG',
+    metaDesc:
+      'Rediseño de la web de Inmape: proyecto de diseño UX/UI y desarrollo web para una empresa peruana de mantenimiento industrial. Interfaz moderna y responsive creada por CyberSG.',
+    discipline: 'UX/UI • Diseño web • Desarrollo web',
+    displayTitle: 'Rediseño web - Inmape',
+    clients: [
+      { logoSrc: '/images/e-qapla_logo.avif', alt: 'Logo de e-Qapla', name: 'e-Qapla' },
+      { logoSrc: '/images/inmape_logo.avif', alt: 'Logo de Inmape', name: 'Inmape' },
+    ],
+    role: 'Diseñador UX/UI',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript',
+    links: [{ label: 'ENLACE [//] PROYECTO', href: 'https://inmapesrl.com', text: 'https://inmapesrl.com' }],
+    next: { title: 'ArquiTechPro', href: '/work/ArquiTechPro' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: 'Reputación consolidada, presencia obsoleta',
+        body: `<p>A pesar de contar con más de 25 años de experiencia en mantenimiento industrial de alto nivel, <strong><i>INMAPE S.R.L.</i></strong> tenía una brecha digital importante. Su web no reflejaba su <strong><i>liderazgo técnico</i></strong>, lo que se traducía en pocos leads y una imagen de marca que no estaba a la altura de la precisión y la escala de sus servicios eléctricos y mecánicos.</p>`,
+      },
+      {
+        kicker: '02 [//] Objetivo',
+        heading: 'Construir autoridad digital',
+        body: `<p>El objetivo era transformar la web de un folleto estático en una potente herramienta de generación de leads. Nuestra estrategia se centró en:<br><br><ul><li><strong>Modernización</strong>: renovar la identidad visual para alinearla con los estándares internacionales de ingeniería.</li><li><strong>Jerarquía de servicios</strong>: organizar soluciones complejas (eléctricas, mecánicas, metalmecánica) en una arquitectura fácil de navegar.</li><li><strong>Generar confianza</strong>: destacar 25 años de experiencia mediante prueba social y certificaciones técnicas para atraer clientes B2B.</li></ul><br><br>Cubriendo cada paso del proceso: <strong><i>[flujo de usuario, prototipado, revisiones, testing del formulario]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Descubrimiento intuitivo del servicio',
+        body: `<p>Diseñamos un flujo de navegación que prioriza la <strong><i>"facilidad de acceso"</i></strong>. Entendiendo que los clientes industriales suelen buscar soluciones técnicas concretas, implementamos:<br><br><ul><li><strong>Navegación categorizada</strong>: un menú simplificado que separa los tipos de mantenimiento (preventivo, predictivo, correctivo) para una identificación inmediata.</li><li><strong>Puntos de contacto inteligentes</strong>: botones CTA (call to action) colocados estratégicamente para que los potenciales clientes soliciten presupuestos o visitas técnicas con el mínimo de clics.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: 'Mockup del rediseño de la web de Inmape dentro de un móvil con el home desenfocado de fondo',
+      process: 'Proceso de diseño web',
+      implementation: 'Implementación del diseño web en Webflow, con las pantallas Home y Nosotros',
+    },
+  },
+  ca: {
+    metaTitle: 'Inmape | CyberSG',
+    metaDesc:
+      "Redisseny del web d'Inmape: projecte de disseny UX/UI i desenvolupament web per a una empresa peruana de manteniment industrial. Interfície moderna i responsive creada per CyberSG.",
+    discipline: 'UX/UI • Disseny web • Desenvolupament web',
+    displayTitle: 'Redisseny web - Inmape',
+    clients: [
+      { logoSrc: '/images/e-qapla_logo.avif', alt: 'Logotip d’e-Qapla', name: 'e-Qapla' },
+      { logoSrc: '/images/inmape_logo.avif', alt: 'Logotip d’Inmape', name: 'Inmape' },
+    ],
+    role: 'Dissenyador UX/UI',
+    timeline: '2025',
+    stack: 'Figma, Ilustrator, Photoshop, Webflow, CSS, Javascript',
+    links: [{ label: 'ENLLAÇ [//] PROJECTE', href: 'https://inmapesrl.com', text: 'https://inmapesrl.com' }],
+    next: { title: 'ArquiTechPro', href: '/work/ArquiTechPro' },
+    sections: [
+      {
+        kicker: '01 [//] El problema',
+        heading: 'Reputació consolidada, presència obsoleta',
+        body: `<p>Tot i tenir més de 25 anys d'experiència en manteniment industrial d'alt nivell, <strong><i>INMAPE S.R.L.</i></strong> tenia una bretxa digital important. El seu web no reflectia el seu <strong><i>lideratge tècnic</i></strong>, cosa que es traduïa en pocs leads i una imatge de marca que no estava a l'altura de la precisió i l'escala dels seus serveis elèctrics i mecànics.</p>`,
+      },
+      {
+        kicker: '02 [//] Objectiu',
+        heading: 'Construir autoritat digital',
+        body: `<p>L'objectiu era transformar el web d'un fullet estàtic en una potent eina de generació de leads. La nostra estratègia es va centrar a:<br><br><ul><li><strong>Modernització</strong>: renovar la identitat visual per alinear-la amb els estàndards internacionals d'enginyeria.</li><li><strong>Jerarquia de serveis</strong>: organitzar solucions complexes (elèctriques, mecàniques, metal·lúrgia) en una arquitectura fàcil de navegar.</li><li><strong>Generar confiança</strong>: destacar 25 anys d'experiència mitjançant prova social i certificacions tècniques per atraure clients B2B.</li></ul><br><br>Cobrint cada pas del procés: <strong><i>[flux d'usuari, prototipatge, revisions, testing del formulari]</i></strong></p>`,
+      },
+      {
+        kicker: '03 [//] Onboarding',
+        heading: 'Descobriment intuïtiu del servei',
+        body: `<p>Vam dissenyar un flux de navegació que prioritza la <strong><i>"facilitat d'accés"</i></strong>. Entenent que els clients industrials solen buscar solucions tècniques concretes, vam implementar:<br><br><ul><li><strong>Navegació categoritzada</strong>: un menú simplificat que separa els tipus de manteniment (preventiu, predictiu, correctiu) per a una identificació immediata.</li><li><strong>Punts de contacte intel·ligents</strong>: botons CTA (call to action) col·locats estratègicament perquè els potencials clients sol·licitin pressupostos o visites tècniques amb el mínim de clics.</li></ul></p>`,
+      },
+    ],
+    alt: {
+      hero: "Mockup del redisseny del web d'Inmape dins d'un mòbil amb el home desenfocat de fons",
+      process: 'Procés de disseny web',
+      implementation: 'Implementació del disseny web a Webflow, amb les pantalles Home i Nosaltres',
+    },
+  },
+} as const;
+
+const c = copy[lang];
+---
+
+<ProjectShell
+  lang={lang}
+  metaTitle={c.metaTitle}
+  metaDesc={c.metaDesc}
+  discipline={c.discipline}
+  displayTitle={c.displayTitle}
+  clients={[...c.clients]}
+  role={c.role}
+  timeline={c.timeline}
+  stack={c.stack}
+  links={[...c.links]}
+  next={c.next}
+>
+  <section class="section">
+    <img loading="lazy" class="image-large" src="/images/Mock_ups_inmape.avif" alt={c.alt.hero} />
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="content-subtitle accent">{c.sections[0].kicker}</div>
+        <div class="copy">
+          <h2>{c.sections[0].heading}</h2>
+          <div set:html={c.sections[0].body}></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[1].kicker}</div>
+          <h2>{c.sections[1].heading}</h2>
+          <div set:html={c.sections[1].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/process-inmape-1.avif" alt={c.alt.process} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="content-split">
+      <div class="copy-block">
+        <div class="copy">
+          <div class="content-subtitle accent">{c.sections[2].kicker}</div>
+          <h2>{c.sections[2].heading}</h2>
+          <div set:html={c.sections[2].body}></div>
+        </div>
+      </div>
+      <div class="image-column">
+        <img class="image" src="/images/Portada_Inmape.avif" alt={c.alt.implementation} />
+      </div>
+    </div>
+  </section>
+
+  <section class="section full-bleed" style="background-image: url('/images/Collage_Inmape.avif');">
+  </section>
+</ProjectShell>
