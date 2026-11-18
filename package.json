@@ -2,6 +2,7 @@
   "name": "c-users-luiss-onedrive---universidad-peruana-de-ciencias-photoshop--vida-2025-proyecto-astro",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@11.5.3",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

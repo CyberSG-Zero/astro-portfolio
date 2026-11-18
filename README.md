@@ -58,10 +58,16 @@ My philosophy: *"Always looking for the best solution for my client."*
 git clone https://github.com/CyberSG-Zero/astro-portfolio.git
 
 # Install dependencies
-npm install
+pnpm install
 
 # Start development server
-npm run dev
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Preview the production build
+pnpm preview
 ```
 
 Open [http://localhost:4321](http://localhost:4321) to view.

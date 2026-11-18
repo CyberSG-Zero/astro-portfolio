@@ -42,6 +42,15 @@ const copy = {
     send: 'Send Message',
     sending: 'Sending...',
     error: 'Something went wrong. Please try again.',
+    formError: 'Please fix the highlighted fields.',
+    networkError: "We couldn't connect. Please try again.",
+    fieldErrors: {
+      name: 'Please enter your name.',
+      company: 'Please enter your company name.',
+      email: 'Please enter a valid email address (e.g. name@company.com).',
+      message: 'Please write a message.',
+      consent: 'Please accept the consent checkbox.',
+    },
     thanksPath: '/thank-you-page',
     contactLd: 'Get in touch with CyberSG - Freelance Web Developer. Available for web development, UX/UI design, and visual design projects.',
   },
@@ -72,6 +81,15 @@ const copy = {
     send: 'Enviar mensaje',
     sending: 'Enviando...',
     error: 'Algo salió mal. Inténtalo de nuevo.',
+    formError: 'Corrige los campos marcados.',
+    networkError: 'No pudimos conectar. Inténtalo de nuevo.',
+    fieldErrors: {
+      name: 'Escribe tu nombre.',
+      company: 'Escribe el nombre de tu empresa.',
+      email: 'Escribe un correo electrónico válido (p. ej. nombre@empresa.com).',
+      message: 'Escribe un mensaje.',
+      consent: 'Acepta la casilla de consentimiento.',
+    },
     thanksPath: '/gracias',
     contactLd:
       'Ponte en contacto con CyberSG - Desarrollador web freelance. Disponible para proyectos de desarrollo web, diseño UX/UI y diseño visual.',
@@ -103,6 +121,15 @@ const copy = {
     send: 'Envia el missatge',
     sending: 'Enviant...',
     error: 'Alguna cosa ha anat malament. Torna-ho a provar.',
+    formError: 'Corregeix els camps marcats.',
+    networkError: 'No hem pogut connectar. Torna-ho a provar.',
+    fieldErrors: {
+      name: 'Escriu el teu nom.',
+      company: "Escriu el nom de l'empresa.",
+      email: 'Escriu un correu electrònic vàlid (p. ex. nom@empresa.com).',
+      message: 'Escriu un missatge.',
+      consent: 'Accepta la casella de consentiment.',
+    },
     thanksPath: '/gracies',
     contactLd:
       "Posa't en contacte amb CyberSG - Desenvolupador web freelance. Disponible per a projectes de desenvolupament web, disseny UX/UI i disseny visual.",
@@ -177,31 +204,39 @@ const contactLd = {
         class="contact-form"
         id="contacto-form"
         method="POST"
+        novalidate
         data-thanks={thanksUrl}
         data-sending={c.sending}
         data-error={c.error}
         data-send={c.send}
+        data-form-error={c.formError}
+        data-network-error={c.networkError}
+        data-field-errors={JSON.stringify(c.fieldErrors)}
       >
         <input type="text" name="website_url" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <label for="contact-name">
           {c.name}
-          <input type="text" id="contact-name" name="name" placeholder={c.namePlaceholder} autocomplete="name" required />
+          <input type="text" id="contact-name" name="name" placeholder={c.namePlaceholder} autocomplete="name" maxlength="100" aria-describedby="error-name" required />
+          <span class="field-error" id="error-name" aria-live="polite"></span>
         </label>
 
         <label for="contact-company">
           {c.company}
-          <input type="text" id="contact-company" name="company" placeholder={c.companyPlaceholder} autocomplete="organization" required />
+          <input type="text" id="contact-company" name="company" placeholder={c.companyPlaceholder} autocomplete="organization" maxlength="100" aria-describedby="error-company" required />
+          <span class="field-error" id="error-company" aria-live="polite"></span>
         </label>
 
         <label for="contact-email">
           {c.email}
-          <input type="email" id="contact-email" name="email" placeholder={c.emailPlaceholder} autocomplete="email" required />
+          <input type="email" id="contact-email" name="email" placeholder={c.emailPlaceholder} autocomplete="email" maxlength="200" aria-describedby="error-email" required />
+          <span class="field-error" id="error-email" aria-live="polite"></span>
         </label>
 
         <label for="contact-message">
           {c.message}
-          <textarea id="contact-message" name="message" placeholder={c.messagePlaceholder} required></textarea>
+          <textarea id="contact-message" name="message" placeholder={c.messagePlaceholder} maxlength="2000" aria-describedby="error-message" required></textarea>
+          <span class="field-error" id="error-message" aria-live="polite"></span>
         </label>
 
         <fieldset>
@@ -220,9 +255,10 @@ const contactLd = {
 
         <label class="checkbox" for="consent">
           {c.consent}
-          <input type="checkbox" id="consent" name="consent" required />
+          <input type="checkbox" id="consent" name="consent" aria-describedby="error-consent" required />
           <span class="check"></span>
         </label>
+        <span class="field-error" id="error-consent" aria-live="polite"></span>
 
         <button type="submit" disabled>{c.send}</button>
         <p id="contacto-estado" class="contact-status" role="status" aria-live="polite"></p>
@@ -230,43 +266,10 @@ const contactLd = {
     </div>
   </section>
 
-  <script is:inline src="/js/submit_button.js" defer></script>
   <script is:inline src="/js/copy_to_clipboard.js" defer></script>
 
   <script>
-    import { actions } from 'astro:actions';
-    import { navigate } from 'astro:transitions/client';
-
-    function initContactForm() {
-      const form = document.getElementById('contacto-form') as HTMLFormElement | null;
-      if (!form || form.dataset.contactoReady === 'true') return;
-      form.dataset.contactoReady = 'true';
-
-      const estado = document.getElementById('contacto-estado')!;
-      const boton = form.querySelector<HTMLButtonElement>('button[type="submit"]')!;
-      const textoOriginal = form.dataset.send ?? boton.textContent ?? '';
-      const enviando = form.dataset.sending ?? '...';
-      const errorMsg = form.dataset.error ?? 'Error';
-      const thanksUrl = form.dataset.thanks ?? '/';
-
-      form.addEventListener('submit', async (event) => {
-        event.preventDefault();
-        boton.disabled = true;
-        boton.textContent = enviando;
-        estado.textContent = '';
-
-        const { error } = await actions.contacto(new FormData(form));
-
-        if (error) {
-          estado.textContent = errorMsg;
-          boton.textContent = textoOriginal;
-          boton.disabled = false;
-          return;
-        }
-
-        navigate(thanksUrl);
-      });
-    }
+    import { initContactForm } from '../scripts/contact-form';
 
     initContactForm();
     document.addEventListener('astro:page-load', initContactForm);
