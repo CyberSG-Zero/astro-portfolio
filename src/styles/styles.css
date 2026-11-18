@@ -1122,6 +1122,17 @@ a.content-header.projects {
         font-family: 'Open Sans Variable', system-ui;
         font-size: 0.875rem;
     }
+
+    & .field-error {
+        color: var(--accent-color);
+        font-family: 'Open Sans Variable', system-ui;
+        font-size: 0.8rem;
+    }
+
+    & [aria-invalid="true"],
+    & [aria-invalid="true"]:focus {
+        border-color: var(--accent-color);
+    }
 }
 
 .email-link span, a.email-link {
