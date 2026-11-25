@@ -1213,6 +1213,8 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .footer-section {
@@ -1284,11 +1286,38 @@ footer {
     align-items: center;
 }
 
-.social-icons {
+.footer-legal {
     display: flex;
     flex-direction: row;
     align-items: center;
-    /* justify-content: center; */
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    font-size: 0.875rem;
+    transition: all 1s ease;
+
+    & .footer-legal-link {
+        color: var(--text-color);
+        text-decoration: none;
+        text-underline-offset: 0.25em;
+
+        &:hover,
+        &:focus-visible {
+            color: var(--low-color);
+            text-decoration: underline;
+        }
+    }
+
+    & .footer-legal-sep {
+        color: var(--bar-color);
+    }
+}
+
+.social-icons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
     text-decoration: none;
 
@@ -1304,6 +1333,127 @@ footer {
             background-color: white;
             fill: var(--bg-color);
             color: var(--bg-color);
+        }
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   08b · LEGAL — páginas de términos y privacidad
+   Impacto: MEDIO · lectura de textos largos
+   ═══════════════════════════════════════════════════════════ */
+
+.legal-content {
+    padding-bottom: 4rem;
+
+    & .legal-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    & .legal-lead {
+        max-width: 65ch;
+        font-size: clamp(1rem, 1.2vw, 1.25rem);
+        color: var(--low-color);
+    }
+
+    & .legal-updated {
+        font-size: 0.875rem;
+    }
+
+    & .legal-toc {
+        border: 1px solid var(--bar-color);
+        padding: 1.25rem 1.5rem;
+
+        & .legal-toc-title {
+            font-family: 'Gabarito Variable', system-ui;
+            color: var(--low-color);
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        & ol {
+            display: grid;
+            gap: 0.4rem;
+            padding-left: 1.25rem;
+        }
+
+        & a {
+            color: var(--text-color);
+            text-decoration: none;
+
+            &:hover,
+            &:focus-visible {
+                color: var(--low-color);
+                text-decoration: underline;
+            }
+        }
+    }
+
+    & .legal-section {
+        scroll-margin-top: 6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 75ch;
+
+        & h2 {
+            font-family: 'Gabarito Variable', system-ui;
+            color: var(--low-color);
+            font-size: 1.75rem;
+            line-height: 1.2;
+        }
+
+        & p,
+        & li {
+            line-height: 1.7;
+        }
+
+        & ul,
+        & ol {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            padding-left: 1.25rem;
+        }
+
+        & ul {
+            list-style: disc;
+        }
+
+        & ol {
+            list-style: decimal;
+        }
+
+        & a {
+            color: var(--low-color);
+            text-decoration-color: var(--accent-color);
+            text-underline-offset: 0.2em;
+        }
+    }
+
+    & .legal-table-wrap {
+        width: 100%;
+        overflow-x: auto;
+
+        & table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        & th,
+        & td {
+            border: 1px solid var(--bar-color);
+            padding: 0.6rem 0.75rem;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        & th {
+            color: var(--low-color);
+            font-family: 'Gabarito Variable', system-ui;
+            white-space: nowrap;
         }
     }
 }
@@ -1347,7 +1497,7 @@ footer {
     .image-column--hero {
         top: 5rem;
         position: sticky;
-        max-width: 450px;
+        max-width: 350px;
     }
     .text-changer{
         font-size: clamp(3.5rem, 5vw, 5rem);
@@ -1467,6 +1617,7 @@ footer {
     }
 
     .image-column--hero {
+        max-width: 450px;
         aspect-ratio: 1/1;
         /* max-width: none; */
     }
@@ -1603,4 +1754,7 @@ footer {
     .lang-switch-item {
         margin-left: .5rem;
     }
+    .social-icons {
+        width: auto;
+    }   
 }
