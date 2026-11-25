@@ -1335,6 +1335,11 @@ footer {
             color: var(--bg-color);
         }
     }
+
+    &.hero {
+        width: auto;
+        justify-content: flex-start;
+    }
 }
 
 /* ═══════════════════════════════════════════════════════════
