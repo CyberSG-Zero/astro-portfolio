@@ -25,6 +25,7 @@ const en = {
   'a11y.instagram': 'Instagram',
   'a11y.linkedin': 'LinkedIn',
   'a11y.github': 'GitHub',
+  'a11y.legal': 'Legal links',
 
   'footer.home': 'Home',
   'footer.work': 'Work',
@@ -33,6 +34,10 @@ const en = {
   'footer.sub': "Let's make something happen together",
   'footer.cta': 'Contact me',
   'footer.rights': '© 2026 CyberSG',
+  'footer.terms': 'Terms',
+  'footer.privacy': 'Privacy',
+  'legal.toc': 'On this page',
+  'legal.updated': 'Last updated:',
 };
 
 export type UIKey = keyof typeof en;
@@ -49,6 +54,7 @@ const es = {
   'a11y.instagram': 'Instagram',
   'a11y.linkedin': 'LinkedIn',
   'a11y.github': 'GitHub',
+  'a11y.legal': 'Enlaces legales',
 
   'footer.home': 'Inicio',
   'footer.work': 'Proyectos',
@@ -57,6 +63,10 @@ const es = {
   'footer.sub': 'Hagamos que pase algo juntos',
   'footer.cta': 'Contáctame',
   'footer.rights': '© 2026 CyberSG',
+  'footer.terms': 'Términos',
+  'footer.privacy': 'Privacidad',
+  'legal.toc': 'En esta página',
+  'legal.updated': 'Última actualización:',
 } satisfies typeof en;
 
 const ca = {
@@ -71,6 +81,7 @@ const ca = {
   'a11y.instagram': 'Instagram',
   'a11y.linkedin': 'LinkedIn',
   'a11y.github': 'GitHub',
+  'a11y.legal': 'Enllaços legals',
 
   'footer.home': 'Inici',
   'footer.work': 'Projectes',
@@ -79,6 +90,10 @@ const ca = {
   'footer.sub': 'Fem que passi alguna cosa junts',
   'footer.cta': "Contacta'm",
   'footer.rights': '© 2026 CyberSG',
+  'footer.terms': 'Termes',
+  'footer.privacy': 'Privadesa',
+  'legal.toc': 'En aquesta pàgina',
+  'legal.updated': 'Última actualització:',
 } satisfies typeof en;
 
 export const ui = { en, es, ca };

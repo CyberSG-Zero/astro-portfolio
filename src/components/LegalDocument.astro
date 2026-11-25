@@ -1,0 +1,66 @@
+---
+import type { LegalDoc } from '../i18n/legal';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  doc: LegalDoc;
+  lang: Lang;
+}
+
+const { doc, lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<article class="section legal-content">
+  <header class="legal-header">
+    <div class="content-subtitle">{doc.eyebrow}</div>
+    <h1 class="section-title">{doc.title}</h1>
+    <p class="legal-lead">{doc.lead}</p>
+    <p class="legal-updated">
+      {t('legal.updated')}
+      <time datetime={doc.updated}>{doc.updatedDisplay}</time>
+    </p>
+  </header>
+
+  <nav class="legal-toc" aria-label={t('legal.toc')}>
+    <h2 class="legal-toc-title">{t('legal.toc')}</h2>
+    <ol>
+      {doc.sections.map((section) => (
+        <li><a href={`#${section.id}`}>{section.heading}</a></li>
+      ))}
+    </ol>
+  </nav>
+
+  {doc.sections.map((section) => (
+    <section class="legal-section" id={section.id} aria-labelledby={`${section.id}-heading`}>
+      <h2 id={`${section.id}-heading`}>{section.heading}</h2>
+
+      {section.blocks.map((block) => (
+        <>
+          {block.kind === 'p' && <p>{block.text}</p>}
+          {block.kind === 'html' && <p set:html={block.html} />}
+          {block.kind === 'list' && (
+            block.ordered
+              ? <ol>{block.items.map((item) => <li>{item}</li>)}</ol>
+              : <ul>{block.items.map((item) => <li>{item}</li>)}</ul>
+          )}
+          {block.kind === 'table' && (
+            <div class="legal-table-wrap">
+              <table>
+                <thead>
+                  <tr>{block.headers.map((header) => <th scope="col">{header}</th>)}</tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row) => (
+                    <tr>{row.map((cell) => <td>{cell}</td>)}</tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+        </>
+      ))}
+    </section>
+  ))}
+</article>

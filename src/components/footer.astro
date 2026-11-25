@@ -38,6 +38,11 @@ const t = useTranslations(lang);
 
     <div class="footer-bottom">
       <div class="footer-copyright">{t('footer.rights')}</div>
+      <nav class="footer-legal" aria-label={t('a11y.legal')}>
+        <a class="footer-legal-link" href={localizePath(lang, '/terms')}>{t('footer.terms')}</a>
+        <span class="footer-legal-sep" aria-hidden="true">·</span>
+        <a class="footer-legal-link" href={localizePath(lang, '/privacy')}>{t('footer.privacy')}</a>
+      </nav>
       <div class="social-icons">
         <a class="social-icon" href="https://www.instagram.com/cybersg_zero/"
           target="_blank"
